@@ -7,6 +7,7 @@
 * Kubernetes is a declarative system
 * Git can be used to describe infrastructure and software deployment
 * GitOps is a way to do Continuous Delivery and operate Kubernetes via Git pull request
+* GitOps empowers developers to do operations
 
 ### Imperative vs Declarative
 
@@ -25,6 +26,8 @@ The concept of GitOps originated at Weaveworks, whose developers described how t
 Kubernetes is a *declarative* system and by using declarative tools, the entire set of configuration files can be version controlled in Git. More generally, GitOps is a way to do Continuous Delivery and operate Kubernetes via Git.
 
 ## Argo CD
+
+![architecture](docs/img/gitops-k8s.png)
 
 ### Push vs Pull
 
