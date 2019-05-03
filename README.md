@@ -8,6 +8,9 @@
 * Git can be used to describe infrastructure and software deployment
 * GitOps is a way to do Continuous Delivery and operate Kubernetes via Git pull request
 * GitOps empowers developers to do operations
+* CI pipelines should only run builds and tests and publish images
+* In a pull-based approach, an operator deploys new images from inside of the cluster
+* You can only observe what actual state in the cluster is and react when it diverge from the desiderd one
 
 ### Imperative vs Declarative
 
