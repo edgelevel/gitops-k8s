@@ -24,11 +24,13 @@ The concept of GitOps originated at Weaveworks, whose developers described how t
 
 Kubernetes is a *declarative* system and by using declarative tools, the entire set of configuration files can be version controlled in Git. More generally, GitOps is a way to do Continuous Delivery and operate Kubernetes via Git.
 
+## Argo CD
+
 ### Push vs Pull
 
 TODO
 
-### What is Argo CD?
+### Setup
 
 TODO
 
@@ -39,16 +41,14 @@ TODO
 * jenkins
 * Rancher vs Spinnaker
 
-Resources
+## Resources
 
 * [Imperative vs Declarative](https://medium.com/@dominik.tornow/imperative-vs-declarative-8abc7dcae82e)
-
 * [GitOps - Operations by Pull Request](https://www.weave.works/blog/gitops-operations-by-pull-request) (Part 1)
 * [The GitOps Pipeline](https://www.weave.works/blog/the-gitops-pipeline) (Part 2)
 * [GitOps - Observability](https://www.weave.works/blog/gitops-part-3-observability) (Part 3)
 * [GitOps - Application Delivery Compliance and Secure CICD](https://www.weave.works/blog/gitops-compliance-and-secure-cicd) (Part 4)
 * [kubediff](https://github.com/weaveworks/kubediff)
-
 * [What Is GitOps Really?](https://www.weave.works/blog/what-is-gitops-really)
 * [GitOps 101: What Is GitOps, and Why Would You Use It?](https://www.twistlock.com/2018/08/06/gitops-101-gitops-use)
 * [GitOps: Dev, with a Dash of Ops!](https://www.cloudbees.com/blog/gitops-dev-dash-ops)
@@ -57,8 +57,9 @@ Resources
 * [Automating continuous delivery with Kubernetes, Google Cloud and Git](https://vimeo.com/255633066)
 * [Continuous Delivery the Hard Way](https://www.weave.works/blog/continuous-delivery-the-hard-way)
 * [GitOps: High velocity CICD for Kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
-
 * [Introducing Argo CD](https://blog.argoproj.io/introducing-argo-cd-declarative-continuous-delivery-for-kubernetes-da2a73a780cd)
-* [Argo CD — Declarative Continuous Delivery for Kubernetes](https://argoproj.github.io/argo-cd)
+* [Argo CD - Declarative Continuous Delivery for Kubernetes](https://argoproj.github.io/argo-cd)
 
-Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation and promote it in our teams!
+## Contributors
+
+Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation of this project and promote GitOps in our teams!
