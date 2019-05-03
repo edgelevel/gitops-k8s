@@ -4,20 +4,21 @@
 
 ### TL;DR
 
-* Kubernetes is a *declarative* system
+* Kubernetes is a declarative system
 * Git can be used to describe infrastructure and software deployment
 * GitOps is a way to do Continuous Delivery and operate Kubernetes via Git pull request
 
 ### Imperative vs Declarative
 
 In an imperative system, the user knows the desired state, determines the sequence of commands to transition the system to the desired state and supplies a representation of the commands to the system.
+
 By contrast, in a declarative system, the user knows the desired state, supplies a representation of the desired state to the system, then the system reads the current state and determines the sequence of commands to transition the system to the desired state.
 
 Declarative systems have the distinct advantage of being able to react to unintended state changes without further supervision. In the event of an unintended state change leading to a state drift, the system may autonomously determine and apply the set of mitigating actions leading to a state match. This process is called a *control loop*, a popular choice for the implementation of controllers.
 
 ### What is GitOps?
 
-> GitOps is the art and science of using Git pull requests to manage infrastructure provisioning and software deployment
+GitOps is the art and science of using Git pull requests to manage infrastructure provisioning and software deployment
 
 The concept of GitOps originated at Weaveworks, whose developers described how they use Git to create a *single source of truth*.
 
@@ -59,3 +60,5 @@ Resources
 
 * [Introducing Argo CD](https://blog.argoproj.io/introducing-argo-cd-declarative-continuous-delivery-for-kubernetes-da2a73a780cd)
 * [Argo CD — Declarative Continuous Delivery for Kubernetes](https://argoproj.github.io/argo-cd)
+
+Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation and promote it in our teams!
