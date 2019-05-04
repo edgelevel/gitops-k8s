@@ -108,7 +108,7 @@ You need to embrace failures if you want to be able to recover automatically fro
 
 Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation of this project and promote GitOps in our teams!
 
-## TODO (not in order)
+TODO (not in order)
 
 [ ] Setup [prometheus-operator](https://github.com/coreos/prometheus-operator) for monitoring and alerting + diagram of how it works
 [ ] Setup Fluent Bit and Elasticsearch for logging + diagram of how it works
