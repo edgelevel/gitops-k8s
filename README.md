@@ -1,5 +1,11 @@
 # gitops-k8s
 
+This document aim to provide an opinioted working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and to allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
+
+Nothing of what is outlined below is new or innovative, but it should be at least a good starting point to have something cheap and up&running pretty quickly and give you a chance to try out new ideas with zero time.
+
+Feedback and helps are always welcome!
+
 ## Introduction
 
 ### TL;DR
@@ -38,6 +44,8 @@ In a *pull*-based pipeline, a Kubernetes **operator** deploys new images from in
 
 A CI pipeline should be used to merge and integrate updates with master, while with GitOps you should rely on Kubernetes or the cluster to internally manage deployments based on those master updates.
 
+You could potentially have multiple cluster pointing to the same GitOps repo, but you won't have a centralized view of them, all the clusters will be independent.
+
 ### Observability
 
 Git provides a source of truth for the desired state of the system and *observability* provides a source of truth for the actual state of the running system.
@@ -68,18 +76,28 @@ Observability is a source of truth for the actual running state of the system ri
 
 ![architecture](docs/img/gitops-k8s.png)
 
+This guide will explain how to setup the whole infrastructure on DigitalOcean using GitOps and Argo CD. Note that this setup is not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
+
+Most of the steps have been kept manual on purpose, but should be automated in a production enviroment.
+
+### Prerequisites
+
+* Documentation of how create a Kubernetes on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
+    * $10/month for worker node
+    * $10/month for Load Balancer
+* kubectl [setup](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* Helm [setup](https://helm.sh/docs/using_helm/#installing-helm) and [intro](https://niqdev.github.io/devops/kubernetes/#helm)
+* Download cluster configs and test connection
+    ```bash
+    export KUBECONFIG=~/.kube/CLUSTER_NAME-kubeconfig.yaml
+    kubectl get nodes
+    ```
+
+### How it works?
+
 TODO
 
-### Setup
-
-TODO
-
-### Alternatives
-
-TODO
-
-* jenkins
-* Rancher vs Spinnaker
+You need to embrace failures if you want to be able to recover automatically from that e.g. initContainer
 
 ### Resources
 
@@ -90,25 +108,13 @@ TODO
 
 Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation of this project and promote GitOps in our teams!
 
----
+## TODO (not in order)
 
-1
-setup argocd chart folder
-
-split and template version
-https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml
-# example
-https://github.com/conorfennell/optimizer-k8s/tree/master/charts/argocd/templates
-
-apply this chart manually
-
-2
-https://github.com/conorfennell/optimizer-k8s#bootstrap-cluster
-
-metrics-server
-
-kubectl top nodes / pods
-
-observe: fluent bit, es (logs)
-
-tracing: jager
+[ ] Setup [prometheus-operator](https://github.com/coreos/prometheus-operator) for monitoring and alerting + diagram of how it works
+[ ] Setup Fluent Bit and Elasticsearch for logging + diagram of how it works
+[ ] open source `argocd-bootstrap` with cronjob
+[ ] [metric-server](https://github.com/kubernetes-incubator/metrics-server) e.g. `kubectl top nodes`
+[ ] [Ambassador](https://www.getambassador.io) vs [Istio](https://istio.io)
+[ ] Default Grafana [dashboards](https://grafana.com/dashboards)
+[ ] [Jaeger](https://www.jaegertracing.io) tracing
+[ ] chaos monkey
