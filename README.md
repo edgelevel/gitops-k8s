@@ -1,6 +1,6 @@
 # gitops-k8s
 
-This document aim to provide an opinioted working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and to allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
+This document aim to provide an opinionated working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and to allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
 
 Nothing of what is outlined below is new or innovative, but it should be at least a good starting point to have something cheap and up&running pretty quickly and give you a chance to try out new ideas with zero time.
 
@@ -83,8 +83,8 @@ Most of the steps have been kept manual on purpose, but they should be automated
 ### Prerequisites
 
 * Documentation of how create a Kubernetes on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
-    * $10/month for a Worker Node
-    * $10/month for a Load Balancer
+    * $10/month for Worker Node
+    * $10/month for Load Balancer
 * `kubectl` [setup](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` [[setup](https://helm.sh/docs/using_helm/#installing-helm)|[intro](https://niqdev.github.io/devops/kubernetes/#helm)] is used only for templating purposes
 * Before continue you should download cluster configs and test the connection
@@ -110,13 +110,18 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 
 ## TODO (not in order)
 
-* [ ] Setup [prometheus-operator](https://github.com/coreos/prometheus-operator) for monitoring and alerting + diagram of how it works
-* [ ] Setup Fluent Bit and Elasticsearch for logging + diagram of how it works
+* [ ] travis + linting
+* [ ] setup [prometheus-operator](https://github.com/coreos/prometheus-operator) for monitoring and alerting + diagram of how it works
+* [ ] setup Fluent Bit and Elasticsearch for logging + diagram of how it works
 * [ ] [metric-server](https://github.com/kubernetes-incubator/metrics-server) e.g. `kubectl top nodes`
 * [ ] [Ambassador](https://www.getambassador.io) vs [Istio](https://istio.io)
-* [ ] Default Grafana [dashboards](https://grafana.com/dashboards)
+* [ ] Grafana [dashboards](https://grafana.com/dashboards)
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] chaos monkey
+* [ ] switch cluster via DNS
+* [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
+* [ ] stateless vs stateful: how to restore state if source of truth
+* [ ] autoscaling
 
 ---
 
