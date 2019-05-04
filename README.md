@@ -74,20 +74,20 @@ Observability is a source of truth for the actual running state of the system ri
 
 ## Argo CD
 
+This guide will explain how to setup the whole infrastructure on DigitalOcean using GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
+
+Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
+
 ![architecture](docs/img/gitops-k8s.png)
-
-This guide will explain how to setup the whole infrastructure on DigitalOcean using GitOps and Argo CD. Note that this setup is not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
-
-Most of the steps have been kept manual on purpose, but should be automated in a production enviroment.
 
 ### Prerequisites
 
 * Documentation of how create a Kubernetes on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
-    * $10/month for worker node
-    * $10/month for Load Balancer
-* kubectl [setup](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* Helm [setup](https://helm.sh/docs/using_helm/#installing-helm) and [intro](https://niqdev.github.io/devops/kubernetes/#helm)
-* Download cluster configs and test connection
+    * $10/month for a Worker Node
+    * $10/month for a Load Balancer
+* `kubectl` [setup](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` [[setup](https://helm.sh/docs/using_helm/#installing-helm)|[intro](https://niqdev.github.io/devops/kubernetes/#helm)] is used only for templating purposes
+* Before continue you should download cluster configs and test the connection
     ```bash
     export KUBECONFIG=~/.kube/CLUSTER_NAME-kubeconfig.yaml
     kubectl get nodes
@@ -117,3 +117,26 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 * [ ] Default Grafana [dashboards](https://grafana.com/dashboards)
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] chaos monkey
+
+---
+
+1
+setup argocd chart folder
+
+split and template version
+https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml
+# example
+https://github.com/conorfennell/optimizer-k8s/tree/master/charts/argocd/templates
+
+apply this chart manually
+
+2
+https://github.com/conorfennell/optimizer-k8s#bootstrap-cluster
+
+metrics-server
+
+kubectl top nodes / pods
+
+observe: fluent bit, es (logs)
+
+tracing: jager
