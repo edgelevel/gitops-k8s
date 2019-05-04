@@ -82,7 +82,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ### Prerequisites
 
-* Documentation of how create a Kubernetes on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
+* Documentation of how create a Kubernetes cluster on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
     * $10/month for Worker Node
     * $10/month for Load Balancer
 * `kubectl` [setup](https://kubernetes.io/docs/tasks/tools/install-kubectl)
@@ -97,7 +97,9 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 TODO
 
-You need to embrace failures if you want to be able to recover automatically from that e.g. initContainer
+https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml
+
+You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
 
 ### Resources
 
@@ -122,26 +124,3 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
 * [ ] stateless vs stateful: how to restore state if source of truth
 * [ ] autoscaling
-
----
-
-1
-setup argocd chart folder
-
-split and template version
-https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml
-# example
-https://github.com/conorfennell/optimizer-k8s/tree/master/charts/argocd/templates
-
-apply this chart manually
-
-2
-https://github.com/conorfennell/optimizer-k8s#bootstrap-cluster
-
-metrics-server
-
-kubectl top nodes / pods
-
-observe: fluent bit, es (logs)
-
-tracing: jager
