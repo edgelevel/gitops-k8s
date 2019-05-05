@@ -74,6 +74,8 @@ Observability is a source of truth for the actual running state of the system ri
 
 ## Argo CD
 
+> Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes
+
 This guide will explain how to setup the whole infrastructure on DigitalOcean using GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
 
 Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
@@ -95,7 +97,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ### How it works?
 
-TODO
+Argo CD automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh) charts. `Application` deployments can track updates to branches, tags, or pinned to a specific version of manifests at a Git commit.
 
 https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml
 
