@@ -2,6 +2,10 @@
 
 PREFIX="argo-cd-"
 INSTALL_FILE="install.yaml"
+TEMPLATES_PATH="templates/"
+
+# reset
+rm -fr ${TEMPLATES_PATH} && mkdir ${TEMPLATES_PATH} && cd ${TEMPLATES_PATH}
 
 # https://argoproj.github.io/argo-cd/getting_started/#1-install-argo-cd
 curl -o ${INSTALL_FILE} https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
