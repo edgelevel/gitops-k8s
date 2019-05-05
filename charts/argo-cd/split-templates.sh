@@ -4,8 +4,9 @@ PREFIX="argo-cd-"
 INSTALL_FILE="install.yaml"
 TEMPLATES_PATH="templates/"
 
-# reset
-rm -fr ${TEMPLATES_PATH} && mkdir ${TEMPLATES_PATH} && cd ${TEMPLATES_PATH}
+cd ${TEMPLATES_PATH}
+# remove all files except the one starting with number
+rm [^0-9]*
 
 # https://argoproj.github.io/argo-cd/getting_started/#1-install-argo-cd
 curl -o ${INSTALL_FILE} https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml

@@ -5,4 +5,7 @@ Split the official [install.yaml](https://github.com/argoproj/argo-cd/blob/maste
 ```bash
 # update chart
 ./split-templates.sh
+
+# print template
+helm template -f values.yaml .
 ```
