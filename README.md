@@ -115,13 +115,13 @@ You need to embrace failures if you want to have the ability to heal and recover
 
 ### Bootstrap
 
-[Here](charts/argo-cd) you can find the [official](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml) installation packaged as Helm chart.
+[Here](charts/argocd) you can find the [official](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml) installation packaged as Helm chart.
 
 1. TODO secrets for private charts
 2. Setup Argo CD
     ```bash
     # apply chart
-    helm template -f charts/argo-cd/values.yaml charts/argo-cd/ | kubectl apply -n argocd -f -
+    helm template -f charts/argocd/values.yaml charts/argocd/ | kubectl apply -n argocd -f -
 
     # verify is running on https://localhost:8080
     kubectl port-forward svc/argocd-server -n argocd 8080:443
