@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  project: argocd-project
+  source:
+    repoURL: https://github.com/niqdev/gitops-k8s.git
+    path: charts/argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
