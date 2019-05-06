@@ -1,11 +1,11 @@
 # argocd chart
 
-Split the official [install.yaml](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml) into templates to create a `helm` Chart
+* official [install.yaml](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml)
 
 ```bash
-# update chart
+# download and split chart
 ./split-templates.sh
 
-# print template
+# print chart
 helm template -f values.yaml .
 ```
