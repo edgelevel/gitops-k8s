@@ -136,6 +136,9 @@ You need to embrace failures if you want to have the ability to heal and recover
     ```bash
     # apply chart
     helm template -f bootstrap/values.yaml bootstrap/ | kubectl apply -n argocd -f -
+
+    # open https://localhost:8081
+    kubectl port-forward service/guestbook-ui -n guestbook 8081:80
     ```
 4. TODO First time only sync manually all the out-of-sync application
 
