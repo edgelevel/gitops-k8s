@@ -141,6 +141,7 @@ You need to embrace failures if you want to have the ability to heal and recover
 
 TODO
 
+* test `syncPolicy` and remove point 4 + update diagram
 * how to add an `Application`/`AppProject`/`ConfigMap` (secrets) and conventions
 * [docs](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup)
 * login with GitHub
@@ -163,7 +164,11 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 
 ## TODO (not in order)
 
-* [ ] travis + linting
+* [ ] travis + [linting](https://www.nrmitchi.com/2018/12/linting-your-helm-charts)
+    ```bash
+    # example
+    helm lint charts/argocd/
+    ```
 * [ ] Application diagrams of how they work: prometheus, fluentBit + ES, Ambassador/Istio, Kafka, Jaeger
 * [ ] setup [prometheus-operator](https://github.com/coreos/prometheus-operator) for monitoring and alerting
 * [ ] setup Fluent Bit and Elasticsearch with Kibana for logging
