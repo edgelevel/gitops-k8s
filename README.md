@@ -140,11 +140,14 @@ You need to embrace failures if you want to have the ability to heal and recover
     # open https://localhost:8081
     kubectl port-forward service/guestbook-ui -n guestbook 8081:80
     ```
-4. TODO First time only sync manually all the out-of-sync application
+4. First time only you have to sync manually all the `OutOfSync` applications
+
+This is how it should looks like on the UI
+
+![argocd-ui](docs/img/argocd-ui.png)
 
 TODO
 
-* test `syncPolicy` and remove point 4 + update diagram
 * how to add an `Application`/`AppProject`/`ConfigMap` (secrets) and conventions
 * [docs](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup)
 * login with GitHub
