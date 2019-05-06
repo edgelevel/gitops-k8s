@@ -116,6 +116,8 @@ You need to embrace failures if you want to have the ability to heal and recover
 
 ### Bootstrap
 
+![bootstrap](docs/img/bootstrap.png)
+
 [Here](charts/argocd) you can find the [official](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml) installation packaged as Helm chart.
 
 1. TODO secrets for private charts
