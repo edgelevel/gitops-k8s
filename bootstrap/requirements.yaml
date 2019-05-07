@@ -3,3 +3,4 @@ dependencies:
     alias: argocd
     version: 0.2.2
     repository: https://argoproj.github.io/argo-helm
+    condition: argocd.enabled
