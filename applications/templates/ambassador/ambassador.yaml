@@ -12,7 +12,9 @@ spec:
     helm:
       parameters:
         - name: replicaCount
-          value: "1"
+          value: 1
+        - namse: service.type
+          value: NodePort
   destination:
     server: https://kubernetes.default.svc
     namespace: ambassador
