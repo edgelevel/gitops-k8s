@@ -1,5 +1,11 @@
 # gitops-k8s
 
+---
+
+:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
+:warning: **Heavy Work in Progress** :warning:
+:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
+
 This document aim to provide an opinionated working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
 
 Nothing of what is outlined below is new or innovative, but it should be at least a good starting point to have a cluster up and running pretty quickly and give you a chance to remain focused and try out new ideas.
@@ -81,6 +87,10 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ![architecture](docs/img/architecture.png)
 
+---
+
+TODO Split local vs Cloud
+
 ### Prerequisites
 
 * Create a Kubernetes cluster on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
@@ -148,6 +158,9 @@ This is how it should looks like on the UI
 
 TODO
 
+* >>> setup `LoadBalancer`
+* bootstrap chart
+* switch to public [chart](https://github.com/argoproj/argo-helm)
 * how to add an `Application`/`AppProject`/`ConfigMap` (secrets) and conventions
 * [docs](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup)
 * login with GitHub
