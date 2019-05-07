@@ -6,8 +6,8 @@ metadata:
 spec:
   project: argocd-project
   source:
-    repoURL: https://github.com/niqdev/gitops-k8s.git
-    path: charts/argocd
+    repoURL: https://github.com/argoproj/argo-helm.git
+    path: charts/argo-cd
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

@@ -1,7 +1,2 @@
 argocd:
   enabled: true
-  # override
-  # https://github.com/argoproj/argo-helm/blob/master/charts/argo-cd/templates/argocd-application-controller-clusterrole.yaml
-  # https://github.com/argoproj/argo-helm/blob/master/charts/argo-cd/templates/argocd-application-controller-clusterrolebinding.yaml
-  clusterAdminAccess:
-    enabled: true
