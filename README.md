@@ -1,16 +1,16 @@
 # gitops-k8s
 
----
-
-:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
-:warning: **Heavy Work in Progress** :warning:
-:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
-
 This document aim to provide an opinionated working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
 
 Nothing of what is outlined below is new or innovative, but it should be at least a good starting point to have a cluster up and running pretty quickly and give you a chance to remain focused and try out new ideas.
 
 Feedback and helps are always welcome!
+
+---
+
+:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
+:warning: **Heavy Work in Progress** :warning:
+:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
 
 ## Introduction
 
@@ -88,8 +88,6 @@ Most of the steps have been kept manual on purpose, but they should be automated
 ![architecture](docs/img/architecture.png)
 
 ---
-
->>> is there a reason for why 01-namespace, 02-project
 
 TODO Split local vs Cloud
 
