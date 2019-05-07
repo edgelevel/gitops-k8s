@@ -9,6 +9,6 @@ spec:
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
+  # clusterResourceWhitelist:
+  #   - group: '*'
+  #     kind: '*'
