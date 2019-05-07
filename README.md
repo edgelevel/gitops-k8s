@@ -102,7 +102,8 @@ helm dependency update
 # bootstrap
 # 1) install argocd
 # 2) create application of applications
-helm template -f values.yaml . | kubectl apply -n argocd -f -
+# --namespace argocd overrides .Release.Namespace
+helm template --namespace argocd --values values.yaml . | kubectl apply -n argocd -f -
 
 # open https://localhost:8080
 kubectl port-forward svc/argocd-server -n argocd 8080:443
