@@ -1,4 +1,4 @@
-argo-cd:
+argocd:
   enabled: true
   # override
   # https://github.com/argoproj/argo-helm/blob/master/charts/argo-cd/templates/argocd-application-controller-clusterrole.yaml
