@@ -1,2 +1,4 @@
 argocd:
   enabled: true
+  clusterAdminAccess:
+    enabled: true
