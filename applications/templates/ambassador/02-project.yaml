@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ambassador-project
+spec:
+  sourceRepos:
+    - https://github.com/helm/charts.git
+  destinations:
+    - namespace: ambassador
+      server: https://kubernetes.default.svc
+  # clusterResourceWhitelist:
+  #   - group: rbac.authorization.k8s.io
+  #     kind: ClusterRoleBinding
+  #   - group: rbac.authorization.k8s.io
+  #     kind: ClusterRole
