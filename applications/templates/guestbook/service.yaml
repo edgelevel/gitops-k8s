@@ -10,7 +10,8 @@ metadata:
       kind:  Mapping
       name:  guestbook_mapping
       prefix: /guestbook/
-      service: guestbook-ui
+      # SERVICE_LABEL.NAMESPACE
+      service: guestbook-ui.guestbook
 spec:
   ports:
     - port: 80
