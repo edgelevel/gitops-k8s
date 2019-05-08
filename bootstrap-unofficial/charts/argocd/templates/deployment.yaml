@@ -168,7 +168,7 @@ spec:
       - command:
         - argocd-server
         # TODO allow http
-        - --insecure
+        #- --insecure
         - --staticassets
         - /shared/app
         # TODO change base path

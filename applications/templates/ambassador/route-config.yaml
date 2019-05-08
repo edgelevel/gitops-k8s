@@ -5,8 +5,8 @@ metadata:
   name: ambassador-route-config
   annotations:
     getambassador.io/config: |
-      ---
       # https://www.getambassador.io/user-guide/getting-started#3-creating-your-first-route
+      ---
       apiVersion: ambassador/v1
       kind:  Mapping
       name:  httpbin_mapping
@@ -20,15 +20,14 @@ metadata:
       prefix: /guestbook
       # SERVICE_LABEL.NAMESPACE
       service: guestbook-ui.guestbook
-      ---
       # https://argoproj.github.io/argo-cd/operator-manual/ingress/#ui-base-path
-      apiVersion: ambassador/v1
-      kind:  Mapping
-      name:  argocd_mapping
-      #prefix: /argocd
-      prefix: /
-      rewrite: /
-      service: argocd-server.argocd
+      # ---
+      # apiVersion: ambassador/v1
+      # kind:  Mapping
+      # name:  argocd_mapping
+      # prefix: /argocd
+      # rewrite: /
+      # service: argocd-server.argocd
 spec:
   ports:
     - port: 80
