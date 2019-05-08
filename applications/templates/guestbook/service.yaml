@@ -2,16 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: guestbook
+  name: guestbook-routing
   annotations:
     getambassador.io/config: |
       ---
       apiVersion: ambassador/v1
-      kind:  TCPMapping
+      kind:  Mapping
       name:  guestbook_mapping
       prefix: /guestbook/
-      port: 8081
-      service: guestbook-ui:80
+      service: guestbook-ui
 spec:
   ports:
     - port: 80
