@@ -167,8 +167,13 @@ spec:
       containers:
       - command:
         - argocd-server
+        # TODO allow http
+        - --insecure
         - --staticassets
         - /shared/app
+        # TODO change base path
+        - --basehref
+        - /argocd
         image: argoproj/argocd:v0.12.3
         imagePullPolicy: Always
         name: argocd-server
