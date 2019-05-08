@@ -25,8 +25,9 @@ metadata:
       apiVersion: ambassador/v1
       kind:  Mapping
       name:  argocd_mapping
-      prefix: /argocd
-      rewrite: /
+      prefix: /
+      #prefix: /argocd
+      #rewrite: /
       service: argocd-server.argocd
 spec:
   ports:
