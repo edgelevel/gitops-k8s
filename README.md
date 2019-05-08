@@ -124,6 +124,14 @@ kubectl get secret argocd-secret -o yaml -n argocd
 kubectl edit secret argocd-secret -n argocd
 ```
 
+> working
+
+```bash
+cd bootstrap-unofficial/
+
+helm template --values values.yaml . | kubectl apply -n argocd -f -
+```
+
 ---
 
 ### Prerequisites
