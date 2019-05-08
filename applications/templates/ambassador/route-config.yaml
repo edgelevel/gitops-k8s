@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ambassador-route-config
+  annotations:
+    getambassador.io/config: |
+      # https://www.getambassador.io/user-guide/getting-started#3-creating-your-first-route
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  httpbin_mapping
+      prefix: /httpbin/
+      service: httpbin.org:80
+      host_rewrite: httpbin.org
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  guestbook_mapping
+      prefix: /guestbook
+      # SERVICE_LABEL.NAMESPACE
+      service: guestbook-ui.guestbook
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  argocd_mapping
+      prefix: /argocd
+      service: argocd-server.argocd
+spec:
+  ports:
+    - port: 80
