@@ -12,3 +12,6 @@ metadata:
       prefix: /guestbook/
       port: 8081
       service: guestbook-ui:80
+spec:
+  ports:
+    - port: 80
