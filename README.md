@@ -120,6 +120,8 @@ argocd login localhost:8080 --username admin
 
 # test to fix issue "invalid session: admin.password is missing" after sync first time
 # https://github.com/argoproj/argo-cd/blob/af896533dfb5d23568034f87f39114156630658f/test/manifests/base/patches.yaml
+kubectl get secret argocd-secret -o yaml -n argocd
+kubectl edit secret argocd-secret -n argocd
 ```
 
 ---
