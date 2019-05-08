@@ -9,8 +9,9 @@ metadata:
       apiVersion: ambassador/v1
       kind:  Mapping
       name:  guestbook_mapping
-      prefix: /guestbook
-      service: guestbook-ui
+      prefix: /guestbook/
+      service: guestbook-ui:80
 spec:
   ports:
-    - port: 80
+    - name: guestbook-ui
+      port: 80
