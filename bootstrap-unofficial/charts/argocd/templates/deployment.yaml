@@ -172,8 +172,8 @@ spec:
         - --staticassets
         - /shared/app
         # TODO change base path
-        #- --basehref
-        #- /argocd
+        - --basehref
+        - /argocd
         image: argoproj/argocd:v0.12.3
         imagePullPolicy: Always
         name: argocd-server
