@@ -2,14 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: applications
 spec:
   project: argocd-project
   source:
-    #repoURL: https://github.com/argoproj/argo-helm.git
-    #path: charts/argo-cd
     repoURL: https://github.com/niqdev/gitops-k8s.git
-    path: bootstrap-unofficial/charts/argocd
+    path: applications
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+  # https://argoproj.github.io/argo-cd/user-guide/auto_sync
+  syncPolicy:
+    automated: {}
