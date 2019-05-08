@@ -13,5 +13,4 @@ metadata:
       service: guestbook-ui
 spec:
   ports:
-    - name: guestbook-ui
-      port: 80
+    - port: 80
