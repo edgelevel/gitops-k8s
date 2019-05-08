@@ -7,11 +7,8 @@ metadata:
     getambassador.io/config: |
       ---
       apiVersion: ambassador/v1
-      kind:  Mapping
+      kind:  TCPMapping
       name:  guestbook_mapping
       prefix: /guestbook/
+      port: 8081
       service: guestbook-ui:80
-spec:
-  ports:
-    - name: guestbook-ui
-      port: 80
