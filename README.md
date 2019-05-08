@@ -104,7 +104,7 @@ helm dependency update
 # 2) create application of applications
 # --namespace argocd overrides .Release.Namespace
 # fix is part of a different application: release-name
-# --namespace argocd overrides .Release.Namespace
+# --name argocd overrides .Release.Name
 # https://github.com/argoproj/argo-helm/blob/db30d36879d9122714291ad4f161be9a986fde27/charts/argo-cd/templates/argocd-application-controller-clusterrolebinding.yaml#L9
 helm template --namespace argocd --name argocd --values values.yaml . | kubectl apply -n argocd -f -
 
@@ -117,6 +117,9 @@ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut
 # login
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 argocd login localhost:8080 --username admin
+
+# test to fix issue "invalid session: admin.password is missing" after sync first time
+# https://github.com/argoproj/argo-cd/blob/af896533dfb5d23568034f87f39114156630658f/test/manifests/base/patches.yaml
 ```
 
 ---
