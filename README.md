@@ -122,10 +122,6 @@ argocd login localhost:8080 --username admin
 # https://github.com/argoproj/argo-cd/blob/af896533dfb5d23568034f87f39114156630658f/test/manifests/base/patches.yaml
 kubectl get secret argocd-secret -o yaml -n argocd
 kubectl edit secret argocd-secret -n argocd
-
-# debug ambassador
-# http://localhost:8877/ambassador/v0/diag/
-kubectl port-forward ambassador-XXX 8877 -n ambassador
 ```
 
 > working
@@ -134,6 +130,16 @@ kubectl port-forward ambassador-XXX 8877 -n ambassador
 cd bootstrap-unofficial/
 
 helm template --values values.yaml . | kubectl apply -n argocd -f -
+```
+
+```bash
+# debug ambassador
+# http://localhost:8877/ambassador/v0/diag/
+kubectl port-forward ambassador-XXX 8877 -n ambassador
+
+# retrieve EXTERNAL-IP
+# http://<EXTERNAL-IP>/guestbook/
+kubectl get service ambassador -n ambassador
 ```
 
 ---
