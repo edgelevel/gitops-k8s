@@ -17,16 +17,18 @@ helm repo add argo https://argoproj.github.io/argo-helm
 # download tgz in bootstrap/charts
 helm dependency update
 
+# apply chart
 # --namespace argocd overrides .Release.Namespace
 # --name argocd overrides .Release.Name
-# @see argo-helm/charts/argo-cd/templates/argocd-application-controller-clusterrolebinding.yaml
-# apply chart
+# @see example argo-helm/charts/argo-cd/templates/argocd-application-controller-clusterrolebinding.yaml
 helm template --namespace argocd --name argocd --values values.yaml . | kubectl apply -n argocd -f -
 ```
 
 ## Issue
 
-As soon as you sync `argocd` itself, the following secrets are deleted from `argocd-secret` and the [solution](https://argoproj.github.io/argo-cd/faq/#i-forgot-the-admin-password-how-do-i-reset-it) proposed in the docs is not working. Investigate further the reason or open an issue.
+As soon as you sync `argocd` itself, the following secrets are deleted from `argocd-secret` and the [solution](https://argoproj.github.io/argo-cd/faq/#i-forgot-the-admin-password-how-do-i-reset-it) proposed in the docs is not working.
+
+> Investigate further the reason or open an [issue](https://github.com/argoproj/argo-cd/issues)
 
 * admin.password
 * admin.passwordMtime
@@ -35,7 +37,7 @@ As soon as you sync `argocd` itself, the following secrets are deleted from `arg
 * tls.key
 
 ```bash
-# error in the logs "invalid session: admin.password is missing" after sync first time
+# error in the logs "invalid session: admin.password is missing" after first time sync
 # https://github.com/argoproj/argo-cd/blob/af896533dfb5d23568034f87f39114156630658f/test/manifests/base/patches.yaml
 kubectl get secret argocd-secret -o yaml -n argocd
 kubectl edit secret argocd-secret -n argocd
