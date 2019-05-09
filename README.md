@@ -79,13 +79,15 @@ Observability is a source of truth for the actual running state of the system ri
 
 ## Argo CD
 
-> Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes
+Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
 
-This guide will explain how to setup in few steps the whole infrastructure on DigitalOcean using GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
+You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
 
-Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
+This guide will explain how to setup in few steps the whole infrastructure on DigitalOcean via GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
 
 ![architecture](docs/img/architecture.png)
+
+Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
 
 ### Prerequisites
 
@@ -100,12 +102,6 @@ Most of the steps have been kept manual on purpose, but they should be automated
     export KUBECONFIG=~/.kube/CLUSTER_NAME-kubeconfig.yaml
     kubectl get nodes
     ```
-
-### How it works?
-
-Argo CD automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
-
-You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
 
 ### Bootstrap
 
@@ -135,7 +131,7 @@ You need to embrace failures if you want to have the ability to heal and recover
 4. First time only sync all the `OutOfSync` applications
     * manually
     * *TODO with a cronjob (optional)*
-    * verify [guestbook](https://github.com/argoproj/argocd-example-apps/tree/master/guestbook)
+    * verify [guestbook](https://github.com/argoproj/argocd-example-apps/tree/master/guestbook) example
     ```bash
     # port forward the service
     kubectl port-forward service/guestbook-ui -n guestbook 8081:80
