@@ -105,10 +105,6 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ### Bootstrap
 
-> FIXME image
-
-![bootstrap](docs/img/bootstrap.png)
-
 1. *TODO Setup secrets (optional)*
 2. Setup Argo CD and all the applications
     * [bootstrap](bootstrap/) (not working)
@@ -173,6 +169,10 @@ https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715
 ```
 
 ### Monitoring and Alerting
+
+An Operator is software that encodes this domain knowledge and extends the Kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications.
+
+The Prometheus Operator creates, configures, and manages Prometheus monitoring instances.
 
 > TODO Prometheus
 
