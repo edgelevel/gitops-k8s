@@ -2,7 +2,7 @@
 
 This chart
 
-1. installs `argocd` as subchart from [charts/argocd](charts/argocd) and it's generated from [install.yaml](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml)
+1. installs `argocd` as subchart from [charts/argocd](charts/argocd) which it's generated from [install.yaml](https://github.com/argoproj/argo-cd/blob/master/manifests/install.yaml)
     ```bash
     # download and split chart
     ./split-templates.sh

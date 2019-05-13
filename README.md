@@ -100,7 +100,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
     * $10/month for Load Balancer
 * Download the cluster configs and test connection
     ```bash
-    export KUBECONFIG=~/.kube/CLUSTER_NAME-kubeconfig.yaml
+    export KUBECONFIG=~/.kube/<CLUSTER_NAME>-kubeconfig.yaml
     kubectl get nodes
     ```
 
