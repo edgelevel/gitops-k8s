@@ -13,9 +13,12 @@ This chart
 
 ## Setup
 
+Apply chart
 ```bash
-cd bootstrap-unofficial/
+# from any folder
+./bootstrap-unofficial/apply.sh
 
-# apply chart
+# manually
+cd bootstrap-unofficial/
 helm template --values values.yaml . | kubectl apply -n argocd -f -
 ```
