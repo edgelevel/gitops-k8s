@@ -91,10 +91,10 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ### Prerequisites
 
-* Quick install guide [[Ubuntu](docs/setup.md#ubuntu)|[macOS](docs/setup.md#macos)]
-* Setup [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) to run commands against Kubernetes clusters
-* Setup [helm](https://helm.sh/docs/using_helm/#installing-helm) for templating purposes only
-* Setup [argocd](https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli) CLI
+* Quick install [guide](docs/setup.md)
+    * Setup [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) to run commands against Kubernetes clusters
+    * Setup [helm](https://helm.sh/docs/using_helm/#installing-helm) for templating purposes only
+    * Setup [argocd](https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli) CLI
 * Create a Kubernetes cluster on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
     * $10/month for Worker Node
     * $10/month for Load Balancer
