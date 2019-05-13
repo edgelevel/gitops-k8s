@@ -7,7 +7,6 @@ spec:
   project: ambassador-project
   source:
     repoURL: https://github.com/helm/charts.git
-    targetRevision: HEAD
     path: stable/ambassador
     helm:
       parameters:

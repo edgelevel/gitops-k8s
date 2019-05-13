@@ -1,0 +1,11 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: bot-project
+spec:
+  sourceRepos:
+    - https://github.com/argoproj/argocd-example-apps.git
+  destinations:
+    - namespace: bot
+      server: https://kubernetes.default.svc
