@@ -124,7 +124,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
     # from the CLI
     argocd login localhost:8080 --username admin
     ```
-    * You might need to allow invalid certificates for resources loaded from localhost on Chrome enabling the flag `chrome://flags/#allow-insecure-localhost` to access it
+    * You might need to *allow invalid certificates for resources loaded from localhost* on Chrome enabling the flag `chrome://flags/#allow-insecure-localhost` to access it
     * *TODO using Ambassador*
 4. First time only sync all the `OutOfSync` applications
     * manually

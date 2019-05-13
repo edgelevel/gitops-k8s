@@ -10,10 +10,6 @@ cd ${CURRENT_PATH}
 
 ##############################
 
-# ./bootstrap-unofficial/charts/argocd/split-templates.sh
-
-##############################
-
 function reset_templates {
   local TEMPLATES_PATH="templates/"
 
@@ -25,7 +21,7 @@ function reset_templates {
 
 # https://argoproj.github.io/argo-cd/getting_started/#1-install-argo-cd
 # param #1: <output_name>
-function download_install_template {
+function download_install_chart {
   local OUTPUT_NAME=$1
   local URL="https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
 
@@ -45,7 +41,7 @@ function split_by_resource {
       ;;
     Linux)
       # Ubuntu
-      echo "FIXME" && exit 1
+      echo "FIXME on Linux" && exit 1
 
       # multi-character separator not supported
       sed -i'.tmp' -e 's/---/!/g' ${FILE_NAME}
@@ -95,7 +91,7 @@ function main {
   local SUFFX=".orig"
 
   reset_templates
-  download_install_template ${INSTALL_FILE}
+  download_install_chart ${INSTALL_FILE}
   split_by_resource ${INSTALL_FILE} ${PREFIX}
   append_to_resource ${PREFIX}
   remove_comment
