@@ -5,7 +5,7 @@ metadata:
   name: bot-project
 spec:
   sourceRepos:
-    - https://github.com/argoproj/argocd-example-apps.git
+    - https://github.com/niqdev/mobile-carrier-bot.git
   destinations:
     - namespace: bot
       server: https://kubernetes.default.svc
