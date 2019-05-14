@@ -8,7 +8,7 @@ spec:
   source:
     #repoURL: https://github.com/argoproj/argo-helm.git
     #path: charts/argo-cd
-    repoURL: https://github.com/niqdev/gitops-k8s.git
+    repoURL: {{ .Values.repository }}
     path: bootstrap-unofficial/charts/argocd
   destination:
     server: https://kubernetes.default.svc

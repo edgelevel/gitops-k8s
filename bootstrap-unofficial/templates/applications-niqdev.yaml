@@ -6,8 +6,8 @@ metadata:
 spec:
   project: argocd-project
   source:
-    repoURL: {{ .Values.repository }}
-    path: applications
+    repoURL: https://github.com/edgelevel/gitops-k8s.git
+    path: applications-niqdev
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

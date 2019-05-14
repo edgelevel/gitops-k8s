@@ -247,4 +247,3 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 * [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Fix `bootstrap` chart: remove unofficial
-* [ ] Fix `niqdev` path in charts
