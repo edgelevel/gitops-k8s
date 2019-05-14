@@ -6,8 +6,11 @@ metadata:
 spec:
   project: argocd-project
   source:
-    repoURL: https://github.com/edgelevel/gitops-k8s.git
+    repoURL: {{ .Values.repository }}
     path: applications-niqdev
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+  # https://argoproj.github.io/argo-cd/user-guide/auto_sync
+  syncPolicy:
+    automated: {}
