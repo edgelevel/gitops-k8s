@@ -6,6 +6,10 @@ Nothing of what is outlined below is new or innovative, but it should be at leas
 
 Feedback and helps are always welcome!
 
+* [Introduction](#introduction)
+* [Argo CD](#argo-cd)
+* [Applications](#applications)
+
 ---
 
 :construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
@@ -240,3 +244,7 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 * [ ] stateless vs stateful: how to restore state if source of truth
 * [ ] [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] [external-dns](https://github.com/kubernetes-incubator/external-dns)
+* [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
+* [ ] Example with multiple providers: DigitalOcean, EKS, GKE
+* [ ] Fix `bootstrap` chart: remove unofficial
+* [ ] Fix `niqdev` path in charts
