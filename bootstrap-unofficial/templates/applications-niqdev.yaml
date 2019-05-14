@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applications
+  name: applications-niqdev
 spec:
   project: argocd-project
   source:
@@ -11,6 +11,3 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
-  # https://argoproj.github.io/argo-cd/user-guide/auto_sync
-  syncPolicy:
-    automated: {}
