@@ -1,10 +1,10 @@
 # gitops-k8s
 
-This document aim to provide an opinionated working solutions leveraging Kubernetes and proven GitOps techniques to have a resilient and scalable architecture and allow developers to spend more time on actual business problems rather boring and error prone infrastructure issues.
+This document aims to provide an opinionated working solution leveraging Kubernetes and proven GitOps techniques to have a resilient, composable and scalable Kubernetes platform.
 
-Nothing of what is outlined below is new or innovative, but it should be at least a good starting point to have a cluster up and running pretty quickly and give you a chance to remain focused and try out new ideas.
+Nothing outlined below is new or innovative, but it should be at least a good starting point to have a cluster up and running pretty quickly and give you a chance to remain focused and try out new ideas.
 
-Feedback and helps are always welcome!
+Feedback and help are always welcome!
 
 * [Introduction](#introduction)
 * [Argo CD](#argo-cd)
@@ -12,21 +12,18 @@ Feedback and helps are always welcome!
 
 ---
 
-:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
-:warning: **Heavy Work in Progress** :warning:
-:construction::construction::construction::construction::construction::construction::construction::construction::construction::construction:
-
 ## Introduction
 
 ### TL;DR
 
 * Kubernetes is a declarative system
 * Git can be used to describe infrastructure and applications
+* Git repository is the source of truth and represents a cluster
 * GitOps is a way to do Continuous Delivery and operate Kubernetes via Git pull requests
 * GitOps empowers developers to do operations
 * CI pipelines should only run builds, tests and publish images
 * In a pull-based approach, an operator deploys new images from inside of the cluster
-* You can only observe the actual state of the cluster and react when it diverge from the desiderd one
+* You can only observe the actual state of the cluster and react when it diverges from the desired state
 
 ### Imperative vs Declarative
 
@@ -52,7 +49,7 @@ In a *pull*-based pipeline, a Kubernetes **operator** deploys new images from in
 
 A CI pipeline should be used to merge and integrate updates with master, while with GitOps you should rely on Kubernetes or the cluster to internally manage deployments based on those master updates.
 
-You could potentially have multiple cluster pointing to the same GitOps repo, but you won't have a centralized view of them, all the clusters will be independent.
+You could potentially have multiple cluster pointing to the same GitOps repository, but you won't have a centralized view of them, all the clusters will be independent.
 
 ### Observability
 
@@ -221,7 +218,7 @@ https://github.com/grafana/loki
 
 ## Contributors
 
-Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) to envision this path, lie down the foundation of this project and promote GitOps in our teams!
+Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) for envisioning this path; they laid down the foundation for this project and promoted GitOps in our teams!
 
 ## TODO (not in order)
 
