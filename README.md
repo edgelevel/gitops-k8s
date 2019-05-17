@@ -111,6 +111,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
 2. Setup Argo CD and all the applications
     * [bootstrap](bootstrap/) (not working)
     * [bootstrap-unofficial](bootstrap-unofficial/)
+    * or simply type `make`
 3. Access Argo CD
     ```bash
     # username: admin

@@ -23,7 +23,7 @@ endif
 
 .PHONY: bootstrap
 bootstrap:
-	ls -la $(BOOTSTRAP_PATH)
+	bootstrap-unofficial/apply.sh
 
 .PHONY: all
 all: requirement bootstrap
