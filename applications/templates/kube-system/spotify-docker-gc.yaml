@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spotify-docker-gc
+spec:
+  project: kube-system
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/spotify-docker-gc
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system

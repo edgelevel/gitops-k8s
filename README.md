@@ -149,6 +149,28 @@ This is how it should looks like on the UI
 
 ## Applications
 
+Applications in this repository are defined in the parent [applications](https://github.com/edgelevel/gitops-k8s/tree/master/applications/templates) chart folder.  
+Applications are logically split into folders which represent Kubernete namespaces
+
+### kube-system namespace
+`kube-system` namespace is reserved for Kubernete system applications
+
+- `metrics server`  
+    The metrics server is a Kubernetes cluster add on which extends the metrics api group.  
+    The metrics it collects enables the kubectl commands:
+    ```
+    kubectl top node
+    kubectl top pod --all-namespaces
+    ```
+    It also enables the Kubernetes resource `HorizontalPodAutoscaler`
+
+- `spotify-docker-gc`  
+    The spotify docker gc performs garbage collection in the Kubernetes cluster.  
+    Default configuration has the gc running once a day which  
+    removes containers that exited more than a hour ago  
+    removes images that don't belong to any container  
+    removes volumes that are not associated to any remaining container.
+
 ### Service mesh
 
 > TODO Ambassador vs Istio
@@ -216,10 +238,6 @@ http://www.atechref.com/blog/elk-stack/elk-stack-monitor-elastic-nodes
 https://github.com/grafana/loki
 ```
 
-## Contributors
-
-Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https://github.com/mduarte) for envisioning this path; they laid down the foundation for this project and promoted GitOps in our teams!
-
 ## TODO (not in order)
 
 * [ ] argocd: example secrets for private charts
@@ -233,7 +251,6 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
     # example
     helm lint charts/argocd/
     ```
-* [ ] [metric-server](https://github.com/kubernetes-incubator/metrics-server) e.g. `kubectl top nodes`
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] [kube-monkey](https://github.com/asobti/kube-monkey) or [chaoskube](https://github.com/helm/charts/tree/master/stable/chaoskube)
 * [ ] switch cluster via DNS
@@ -244,3 +261,4 @@ Thanks to [@conorfennell](https://github.com/conorfennell) and [@mduarte](https:
 * [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Fix `bootstrap` chart: remove unofficial
+* [ ] Add prometheus adapter for custom metrics that can be used by the HorizontalPodAutoscaler
