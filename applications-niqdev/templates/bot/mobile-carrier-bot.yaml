@@ -8,7 +8,6 @@ spec:
   source:
     repoURL: https://github.com/niqdev/mobile-carrier-bot.git
     path: charts/app
-    #targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: bot
