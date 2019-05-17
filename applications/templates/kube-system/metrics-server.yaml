@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-server
+spec:
+  project: kube-system
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/metrics-server
+    helm:
+      parameters:
+        - name: serviceAccount.name
+          value: metrics-server
+        - name: resources.requests.memory
+          value: 50Mi
+        - name: resources.limits.memory
+          value: 50Mi
+        - name: args[0]
+          value: "--kubelet-preferred-address-types=InternalIP"
+        - name: args[1]
+          value: "--logtostderr"
+        - name: args[2]
+          value: "--kubelet-insecure-tls"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system

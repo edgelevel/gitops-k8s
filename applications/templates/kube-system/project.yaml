@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: kube-system
+spec:
+  clusterResourceWhitelist:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+  - group: apiregistration.k8s.io
+    kind: APIService
+  sourceRepos:
+    - https://github.com/helm/charts.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: kube-system
