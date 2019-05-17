@@ -1,0 +1,42 @@
+argocd:
+  version: v1.0.0
+
+application:
+  resources:
+#     requests:
+#       memory: "200Mi"
+#       cpu: 10m
+#     limits:
+#       memory: "200Mi"
+
+dex:
+  resources:
+#     requests:
+#       memory: "20Mi"
+#       cpu: 10m
+#     limits:
+#       memory: "20Mi"
+
+redis:
+  resources:
+#     requests:
+#       memory: "30Mi"
+#       cpu: 10m
+#     limits:
+#       memory: "30Mi"
+
+repo:
+  resources:
+#     requests:
+#       memory: "200Mi"
+#       cpu: 10m
+#     limits:
+#       memory: "200Mi"
+
+server:
+  resources:
+#     requests:
+#       memory: "100Mi"
+#       cpu: 10m
+#     limits:
+#       memory: "100Mi"

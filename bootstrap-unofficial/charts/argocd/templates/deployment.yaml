@@ -25,11 +25,13 @@ spec:
         - "20"
         - --operation-processors
         - "10"
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:{{ .Values.argocd.version }}
         imagePullPolicy: Always
         name: argocd-application-controller
         ports:
         - containerPort: 8082
+        resources:
+{{ .Values.application.resources | toYaml | indent 10}}
         readinessProbe:
           initialDelaySeconds: 5
           periodSeconds: 10
@@ -64,6 +66,8 @@ spec:
         ports:
         - containerPort: 5556
         - containerPort: 5557
+        resources:
+{{ .Values.dex.resources | toYaml | indent 10}}
         volumeMounts:
         - mountPath: /shared
           name: static-files
@@ -72,7 +76,7 @@ spec:
         - cp
         - /usr/local/bin/argocd-util
         - /shared
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:{{ .Values.argocd.version }}
         imagePullPolicy: Always
         name: copyutil
         volumeMounts:
@@ -111,6 +115,8 @@ spec:
         name: redis
         ports:
         - containerPort: 6379
+        resources:
+{{ .Values.redis.resources | toYaml | indent 10}}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -135,12 +141,14 @@ spec:
         - argocd-repo-server
         - --redis
         - argocd-redis:6379
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:{{ .Values.argocd.version }}
         imagePullPolicy: Always
         name: argocd-repo-server
         ports:
         - containerPort: 8081
         - containerPort: 8084
+        resources:
+{{ .Values.repo.resources | toYaml | indent 10}}
         readinessProbe:
           initialDelaySeconds: 5
           periodSeconds: 10
@@ -174,12 +182,14 @@ spec:
         # TODO change base path
         #- --basehref
         #- /argocd
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:{{ .Values.argocd.version }}
         imagePullPolicy: Always
         name: argocd-server
         ports:
         - containerPort: 8080
         - containerPort: 8083
+        resources:
+{{ .Values.server.resources | toYaml | indent 10}}
         readinessProbe:
           httpGet:
             path: /healthz
@@ -195,7 +205,7 @@ spec:
         - -r
         - /app
         - /shared
-        image: argoproj/argocd-ui:v0.12.3
+        image: argoproj/argocd-ui:{{ .Values.argocd.version }}
         imagePullPolicy: Always
         name: ui
         volumeMounts:
