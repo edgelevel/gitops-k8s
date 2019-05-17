@@ -25,7 +25,7 @@ spec:
         - "20"
         - --operation-processors
         - "10"
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:v1.0.0
         imagePullPolicy: Always
         name: argocd-application-controller
         ports:
@@ -72,7 +72,7 @@ spec:
         - cp
         - /usr/local/bin/argocd-util
         - /shared
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:v1.0.0
         imagePullPolicy: Always
         name: copyutil
         volumeMounts:
@@ -135,8 +135,13 @@ spec:
         - argocd-repo-server
         - --redis
         - argocd-redis:6379
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:v1.0.0
         imagePullPolicy: Always
+        livenessProbe:
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          tcpSocket:
+            port: 8081
         name: argocd-repo-server
         ports:
         - containerPort: 8081
@@ -167,15 +172,16 @@ spec:
       containers:
       - command:
         - argocd-server
-        # TODO allow http
-        #- --insecure
         - --staticassets
         - /shared/app
-        # TODO change base path
-        #- --basehref
-        #- /argocd
-        image: argoproj/argocd:v0.12.3
+        image: argoproj/argocd:v1.0.0
         imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 30
         name: argocd-server
         ports:
         - containerPort: 8080
@@ -195,7 +201,7 @@ spec:
         - -r
         - /app
         - /shared
-        image: argoproj/argocd-ui:v0.12.3
+        image: argoproj/argocd-ui:v1.0.0
         imagePullPolicy: Always
         name: ui
         volumeMounts:
