@@ -150,13 +150,13 @@ This is how it should looks like on the UI
 ## Applications
 
 Applications in this repository are defined in the parent [applications](https://github.com/edgelevel/gitops-k8s/tree/master/applications/templates) chart folder.  
-Applications are logically split into folders which represent Kubernete namespaces
+Applications are logically split into folders which represent Kubernetes namespaces
 
 ### kube-system namespace
 `kube-system` namespace is reserved for Kubernete system applications
 
 - `metrics server`  
-    The metrics server is a Kubernetes cluster add on which extends the metrics api group.  
+    The metrics server is a Kubernetes cluster add-on which extends the metrics api group.  
     The metrics it collects enables the kubectl commands:
     ```
     kubectl top node
@@ -256,9 +256,8 @@ https://github.com/grafana/loki
 * [ ] switch cluster via DNS
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
 * [ ] stateless vs stateful: how to restore state if source of truth
-* [ ] [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] [external-dns](https://github.com/kubernetes-incubator/external-dns)
 * [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Fix `bootstrap` chart: remove unofficial
-* [ ] Add prometheus adapter for custom metrics that can be used by the HorizontalPodAutoscaler
+* [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
