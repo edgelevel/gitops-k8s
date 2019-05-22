@@ -7,8 +7,6 @@ KUBECTL := $(shell command -v kubectl 2> /dev/null)
 HELM := $(shell command -v helm 2> /dev/null)
 ARGOCD := $(shell command -v argocd 2> /dev/null)
 
-BOOTSTRAP_PATH = bootstrap
-
 .PHONY: requirement
 requirement:
 ifndef KUBECTL
@@ -23,7 +21,7 @@ endif
 
 .PHONY: bootstrap
 bootstrap:
-	bootstrap-unofficial/apply.sh
+	echo TODO
 
 .PHONY: all
 all: requirement bootstrap

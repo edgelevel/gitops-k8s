@@ -1,2 +1,2 @@
 apiVersion: v1
-name: argocd
+name: seed

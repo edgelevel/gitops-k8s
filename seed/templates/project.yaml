@@ -6,6 +6,8 @@ metadata:
 spec:
   sourceRepos:
     - {{ .Values.repository }}
+    # FIXME https://github.com/edgelevel/gitops-k8s/issues/6
+    - https://github.com/argoproj/argo-helm.git
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc
