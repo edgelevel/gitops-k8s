@@ -14,3 +14,5 @@ spec:
       kind: ClusterRoleBinding
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
