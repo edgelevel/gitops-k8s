@@ -247,7 +247,7 @@ https://github.com/grafana/loki
 * [ ] argocd: explain solution of how to sync automatically first time with cronjob
 * [ ] argocd: fix Ambassador routes in LoadBalancer configs
 * [ ] argocd: Makefile for bootstrap
-* [ ] travis + [linting](https://www.nrmitchi.com/2018/12/linting-your-helm-charts)
+* [ ] travis + [linting](https://www.nrmitchi.com/2018/12/linting-your-helm-charts) + remove publish `seed` script
     ```bash
     # example
     helm lint charts/argocd/
@@ -260,5 +260,5 @@ https://github.com/grafana/loki
 * [ ] [external-dns](https://github.com/kubernetes-incubator/external-dns)
 * [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
-* [ ] Fix `bootstrap` chart: remove unofficial
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
+* [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
