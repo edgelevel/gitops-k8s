@@ -2,15 +2,15 @@
 
 HELM := $(shell command -v helm 2> /dev/null)
 
-.PHONY: requirement
-requirement:
+.PHONY: requirements
+requirements:
 ifndef HELM
 	$(error "helm" not found)
 endif
 
 .PHONY: publish-seed
-publish-seed: requirement
+publish-seed: requirements
 	./seed/publish.sh
 
 .PHONY: all
-all: requirement
+all: requirements
