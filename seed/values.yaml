@@ -1,4 +1,6 @@
 argocd:
   enabled: true
+  sourceRepos:
+    # - https://github.com/niqdev/do-k8s.git
 
 repository: https://github.com/edgelevel/gitops-k8s.git

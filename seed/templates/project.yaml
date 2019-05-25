@@ -7,6 +7,9 @@ spec:
   sourceRepos:
     - {{ .Values.repository }}
     - https://github.com/edgelevel/helm-charts.git
+    {{- range .Values.argocd.sourceRepos }}
+    - {{ . }}
+    {{- end }}
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc
