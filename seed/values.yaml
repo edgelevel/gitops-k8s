@@ -1,1 +1,4 @@
+argocd:
+  enabled: true
+
 repository: https://github.com/edgelevel/gitops-k8s.git

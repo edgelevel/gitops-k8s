@@ -1,0 +1,64 @@
+https://stackoverflow.com/questions/23145621/how-to-publish-pages-on-github
+
+# init gh-pages
+git checkout --orphan gh-pages
+git rm -rf .
+echo "seed-chart" > index.html
+git add index.html
+git commit -a -m "add index.html"
+git push origin -u gh-pages
+
+# reset gh-pages
+git push origin :gh-pages
+git branch -D gh-pages
+
+https://github.com/edgelevel/gitops-k8s/settings
+
+Section: GitHub Pages
+Source: "gh-pages branch"
+Tick: "Enforce HTTPS"
+
+https://edgelevel.github.io/gitops-k8s
+https://edgelevel.github.io/gitops-k8s/index.html
+
+---
+
+https://stackoverflow.com/questions/13897717/push-commits-to-another-branch
+https://stackoverflow.com/questions/23145621/how-to-publish-pages-on-github
+https://help.github.com/en/articles/creating-project-pages-using-the-command-line
+
+---
+
+TODO master branch
+
+```
+git checkout seed
+git pull --rebase
+git clone -b gh-pages git@github.com:edgelevel/gitops-k8s.git output
+
+# temporary for official argocd
+cd seed/
+helm init --client-only
+helm repo add argo https://argoproj.github.io/argo-helm
+helm dependency update
+cd ..
+
+cd output/
+helm lint ../seed/
+# output in this folder
+helm package ../seed/
+helm repo index .
+git add .
+git commit -m "release seed v0.1.0"
+git push origin gh-pages
+cd ..
+rm -fr output/
+```
+
+# charts
+
+* [Using Helm to manage charts](https://helm.sh/docs/developing_charts/#using-helm-to-manage-charts)
+* [The chart repository guide](https://helm.sh/docs/developing_charts/#the-chart-repository-guide)
+* [Github Pages example](https://helm.sh/docs/developing_charts/#github-pages-example)
+* [How to make and share your own Helm package](https://medium.com/containerum/how-to-make-and-share-your-own-helm-package-50ae40f6c221)
+* [helm-github-pages](https://github.com/marcellodesales/helm-github-pages)
