@@ -6,10 +6,8 @@ metadata:
 spec:
   project: argocd-project
   source:
-    #repoURL: https://github.com/argoproj/argo-helm.git
-    #path: charts/argo-cd
-    repoURL: {{ .Values.repository }}
-    path: bootstrap-unofficial/charts/argocd
+    repoURL: https://github.com/edgelevel/helm-charts.git
+    path: argocd
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
