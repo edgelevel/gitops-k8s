@@ -3,7 +3,7 @@ https://stackoverflow.com/questions/23145621/how-to-publish-pages-on-github
 # init gh-pages
 git checkout --orphan gh-pages
 git rm -rf .
-echo "seed-chart" > index.html
+echo "edgelevel-gitops" > index.html
 git add index.html
 git commit -a -m "add index.html"
 git push origin -u gh-pages
