@@ -1,5 +1,10 @@
 # gitops-k8s
 
+[![Build Status][travis-image]][travis-url]
+
+[travis-image]: https://travis-ci.org/edgelevel/gitops-k8s.svg?branch=master
+[travis-url]: https://travis-ci.org/edgelevel/gitops-k8s
+
 This document aims to provide an opinionated working solution leveraging Kubernetes and proven GitOps techniques to have a resilient, composable and scalable Kubernetes platform.
 
 Nothing outlined below is new or innovative, but it should be at least a good starting point to have a cluster up and running pretty quickly and give you a chance to remain focused and try out new ideas.
@@ -77,6 +82,10 @@ Observability is a source of truth for the actual running state of the system ri
 * [GitOps for Kubernetes - A DevOps Iteration Focused on Declarative Infrastructure](https://youtu.be/wJleh-6DZJ0)
 * [Automating continuous delivery with Kubernetes, Google Cloud and Git](https://vimeo.com/255633066)
 * [Continuous Delivery the Hard Way](https://www.weave.works/blog/continuous-delivery-the-hard-way)
+
+---
+
+*TODO update docs below with `seed` Chart and add `bootstrap` Chart example*
 
 ## Argo CD
 
@@ -247,11 +256,7 @@ https://github.com/grafana/loki
 * [ ] argocd: explain solution of how to sync automatically first time with cronjob
 * [ ] argocd: fix Ambassador routes in LoadBalancer configs
 * [ ] argocd: Makefile for bootstrap
-* [ ] travis + [linting](https://www.nrmitchi.com/2018/12/linting-your-helm-charts) + remove publish `seed` script
-    ```bash
-    # example
-    helm lint charts/argocd/
-    ```
+* [ ] travis: publish `seed` and remove script from chart
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] [kube-monkey](https://github.com/asobti/kube-monkey) or [chaoskube](https://github.com/helm/charts/tree/master/stable/chaoskube)
 * [ ] switch cluster via DNS
