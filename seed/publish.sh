@@ -17,7 +17,7 @@ helm dependency update
 helm template --values values.yaml .
 helm lint .
 
-git clone -b gh-pages https://github.com/edgelevel/gitops-k8s.git ${TMP_REPOSITORY}
+git clone -b gh-pages git@github.com:edgelevel/gitops-k8s.git ${TMP_REPOSITORY}
 
 cd ${TMP_REPOSITORY}
 helm package ../
