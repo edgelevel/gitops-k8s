@@ -10,7 +10,7 @@ endif
 
 .PHONY: publish-seed
 publish-seed: requirements
-	./seed/publish.sh
+	./scripts/publish-seed.sh
 
 .PHONY: all
 all: requirements

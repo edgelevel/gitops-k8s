@@ -62,3 +62,16 @@ rm -fr output/
 * [Github Pages example](https://helm.sh/docs/developing_charts/#github-pages-example)
 * [How to make and share your own Helm package](https://medium.com/containerum/how-to-make-and-share-your-own-helm-package-50ae40f6c221)
 * [helm-github-pages](https://github.com/marcellodesales/helm-github-pages)
+
+<html>
+  <head>
+    <title>Public Helm Charts repository</title>
+  </head>
+  <body>
+    <h1>Public Helm Charts repository</h1>
+    <p>Add this repository</p>
+    <pre>
+      helm repo add edgelevel-gitops https://edgelevel.github.io/gitops-k8s
+    </pre>
+  </body>
+</html>
