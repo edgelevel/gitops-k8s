@@ -10,20 +10,23 @@ cd ${CURRENT_PATH}
 
 ##############################
 
+ROOT_PATH="${CURRENT_PATH}/.."
+SEED_PATH="${ROOT_PATH}/seed/"
 TMP_REPOSITORY="tmp-gh-pages"
 
+cd ${SEED_PATH}
 helm repo add edgelevel-public https://edgelevel.github.io/helm-charts
 helm dependency update
 helm template --values values.yaml .
 helm lint .
 
-git clone -b gh-pages git@github.com:edgelevel/gitops-k8s.git ${TMP_REPOSITORY}
+git clone -b gh-pages git@github.com:edgelevel/gitops-k8s.git ${ROOT_PATH}/${TMP_REPOSITORY}
 
-cd ${TMP_REPOSITORY}
-helm package ../
+cd ${ROOT_PATH}/${TMP_REPOSITORY}
+helm package ${SEED_PATH}
 helm repo index .
 git add .
 git commit -m "release seed chart"
 git push origin gh-pages
-cd ..
-rm -fr ${TMP_REPOSITORY}
+cd ${ROOT_PATH}
+rm -fr ${ROOT_PATH}/${TMP_REPOSITORY}
