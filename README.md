@@ -154,9 +154,7 @@ This is how it should looks like on the UI
 
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces
 
-### kube-system
-
-`kube-system` namespace is reserved for Kubernete system applications
+**`kube-system`** namespace is reserved for Kubernete system applications
 
 * [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
     ```bash
