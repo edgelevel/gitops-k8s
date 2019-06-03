@@ -83,10 +83,6 @@ Observability is a source of truth for the actual running state of the system ri
 * [Automating continuous delivery with Kubernetes, Google Cloud and Git](https://vimeo.com/255633066)
 * [Continuous Delivery the Hard Way](https://www.weave.works/blog/continuous-delivery-the-hard-way)
 
----
-
-*TODO update docs below with `seed` Chart and add `bootstrap` Chart example*
-
 ## Argo CD
 
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
@@ -156,27 +152,24 @@ This is how it should looks like on the UI
 
 ## Applications
 
-Applications in this repository are defined in the parent [applications](https://github.com/edgelevel/gitops-k8s/tree/master/applications/templates) chart folder.  
-Applications are logically split into folders which represent Kubernetes namespaces
+Applications in this repository are defined in the parent [applications](applications/templates) chart folder and are logically split into folders which represent Kubernetes namespaces
 
-### kube-system namespace
+### kube-system
+
 `kube-system` namespace is reserved for Kubernete system applications
 
-- `metrics server`  
-    The metrics server is a Kubernetes cluster add-on which extends the metrics api group.  
-    The metrics it collects enables the kubectl commands:
-    ```
+* The [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
+    ```bash
     kubectl top node
     kubectl top pod --all-namespaces
     ```
-    It also enables the Kubernetes resource `HorizontalPodAutoscaler`
 
-- `spotify-docker-gc`  
-    The spotify docker gc performs garbage collection in the Kubernetes cluster.  
-    Default configuration has the gc running once a day which  
-    removes containers that exited more than a hour ago  
-    removes images that don't belong to any container  
-    removes volumes that are not associated to any remaining container.
+* The [`spotify-docker-gc`](https://github.com/helm/charts/tree/master/stable/spotify-docker-gc) performs garbage collection in the Kubernetes cluster. Default configurations has the gc running once a day which
+    * removes containers that exited more than a hour ago
+    * removes images that don't belong to any container
+    * removes volumes that are not associated to any remaining container
+
+---
 
 ### Service mesh
 
