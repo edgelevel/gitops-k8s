@@ -37,12 +37,12 @@ brew tap argoproj/tap
 brew install argoproj/tap/argocd
 ```
 
-## Recommended
+## Recommended tools
 
 * [kubectx](https://ahmet.im/blog/kubectx/index.html) - A tool to switch between Kubernetes contexts
 * [kube-ps1](https://github.com/jonmosco/kube-ps1) - Kubernetes prompt
 
-`.bashrc` or `.bash_profile` helper
+Add to `.bashrc` or `.bash_profile`
 ```bash
 # K8S PROMPT
 [[ -f /opt/kube-ps1/kube-ps1.sh ]] && source /opt/kube-ps1/kube-ps1.sh
