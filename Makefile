@@ -12,5 +12,9 @@ endif
 publish-seed: requirements
 	./scripts/publish-seed.sh
 
+.PHONY: bootstrap
+bootstrap: requirements
+	./scripts/bootstrap.sh
+
 .PHONY: all
 all: requirements

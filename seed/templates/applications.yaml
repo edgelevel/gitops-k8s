@@ -7,6 +7,8 @@ spec:
   project: argocd-project
   source:
     repoURL: {{ .Values.repository }}
+    # e.g. branch, SHA, tag
+    targetRevision: HEAD
     path: applications
   destination:
     server: https://kubernetes.default.svc
