@@ -91,9 +91,11 @@ Observability is a source of truth for the actual running state of the system ri
 
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
 
-You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
-
 This guide will explain how to setup in few steps the whole infrastructure on DigitalOcean via GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
+
+<!--
+You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
+-->
 
 ![architecture](docs/img/architecture.png)
 
@@ -101,13 +103,8 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 ### Prerequisites
 
-* Quick install [guide](docs/setup.md)
-    * Setup [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) to run commands against Kubernetes clusters
-    * Setup [helm](https://helm.sh/docs/using_helm/#installing-helm) for templating purposes only
-    * Setup [argocd](https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli) CLI
+* Setup [guide](docs/setup.md)
 * Create a Kubernetes cluster on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
-    * $10/month for Worker Node
-    * $10/month for Load Balancer
 * Download the cluster configs and test connection
     ```bash
     export KUBECONFIG=~/.kube/<CLUSTER_NAME>-kubeconfig.yaml
@@ -118,9 +115,9 @@ Most of the steps have been kept manual on purpose, but they should be automated
 
 1. *TODO Setup secrets (optional)*
 2. Setup Argo CD and all the applications
-    * [bootstrap](bootstrap/) (not working)
-    * [bootstrap-unofficial](bootstrap-unofficial/)
-    * or simply type `make`
+    ```bash
+    make bootstrap
+    ```
 3. Access Argo CD
     ```bash
     # username: admin
@@ -135,8 +132,8 @@ Most of the steps have been kept manual on purpose, but they should be automated
     # from the CLI
     argocd login localhost:8080 --username admin
     ```
-    * You might need to *allow invalid certificates for resources loaded from localhost* on Chrome enabling the flag `chrome://flags/#allow-insecure-localhost` to access it
-    * *TODO using Ambassador*
+    * You might need to *Allow invalid certificates for resources loaded from localhost* on Chrome enabling the flag `chrome://flags/#allow-insecure-localhost` to access it
+    * *TODO config Ambassador*
 4. First time only sync all the `OutOfSync` applications
     * manually
     * *TODO with a cronjob (optional)*
@@ -255,8 +252,6 @@ https://github.com/grafana/loki
 * [ ] argocd: example login with GitHub
 * [ ] argocd: explain solution of how to sync automatically first time with cronjob
 * [ ] argocd: fix Ambassador routes in LoadBalancer configs
-* [ ] argocd: Makefile for bootstrap
-* [ ] travis: publish `seed` and remove script from chart
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] [kube-monkey](https://github.com/asobti/kube-monkey) or [chaoskube](https://github.com/helm/charts/tree/master/stable/chaoskube)
 * [ ] switch cluster via DNS
