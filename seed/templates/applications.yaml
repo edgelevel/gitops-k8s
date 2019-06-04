@@ -8,8 +8,7 @@ spec:
   source:
     repoURL: {{ .Values.repository }}
     # e.g. branch, SHA, tag
-    # FIXME targetRevision: HEAD
-    targetRevision: ambassador-mappings
+    targetRevision: HEAD
     path: applications
   destination:
     server: https://kubernetes.default.svc
