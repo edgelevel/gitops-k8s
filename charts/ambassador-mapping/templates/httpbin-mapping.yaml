@@ -3,7 +3,6 @@
 # kind: Mapping
 # metadata:
 #   name: httpbin_mapping
-#   namespace: ambassador
 # spec:
 #   prefix: /httpbin/
 #   service: httpbin.org:80
