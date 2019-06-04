@@ -121,7 +121,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
     kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 
     # port forward the service
-    kubectl port-forward svc/argocd-server -n argocd 8080:443
+    kubectl port-forward service/argocd-server -n argocd 8080:443
 
     # from the UI
     [open|xdg-open] https://localhost:8080
@@ -194,6 +194,21 @@ https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
 * [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) manages Prometheus, Alertmanager, Grafana and more
+    ```bash
+    # prometheus
+    kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
+    [open|xdg-open] http://localhost:8001
+
+    # alertmanager
+    kubectl port-forward service/prometheus-operator-alertmanager 8002:9093 -n observe
+    [open|xdg-open] http://localhost:8002
+
+    # grafana
+    # username: admin
+    # password: prom-operator
+    kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
+    [open|xdg-open] http://localhost:8003
+    ```
 
 **Resources**
 
