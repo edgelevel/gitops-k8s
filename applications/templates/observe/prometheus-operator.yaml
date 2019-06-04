@@ -8,6 +8,14 @@ spec:
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/prometheus-operator
+    helm:
+      parameters:
+        - name: kubeEtcd.enabled
+          value: "false"
+        - name: kubeControllerManager.enabled
+          value: "false"
+        - name: kubeScheduler.enabled
+          value: "false"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
