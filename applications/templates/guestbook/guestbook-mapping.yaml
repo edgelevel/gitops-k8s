@@ -1,10 +1,10 @@
----
-apiVersion: ambassador/v1
-kind: Mapping
-metadata:
-  name: guestbook_mapping
-  namespace: ambassador
-spec:
-  prefix: /guestbook
-  # SERVICE_LABEL.NAMESPACE:PORT
-  service: guestbook-ui.guestbook
+# ---
+# apiVersion: ambassador/v1
+# kind: Mapping
+# metadata:
+#   name: guestbook_mapping
+#   namespace: ambassador
+# spec:
+#   prefix: /guestbook
+#   # SERVICE_LABEL.NAMESPACE:PORT
+#   service: guestbook-ui.guestbook

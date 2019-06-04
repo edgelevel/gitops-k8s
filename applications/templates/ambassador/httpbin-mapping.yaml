@@ -1,10 +1,10 @@
----
-apiVersion: ambassador/v1
-kind: Mapping
-metadata:
-  name: httpbin_mapping
-  namespace: ambassador
-spec:
-  prefix: /httpbin/
-  service: httpbin.org:80
-  host_rewrite: httpbin.org
+# ---
+# apiVersion: ambassador/v1
+# kind: Mapping
+# metadata:
+#   name: httpbin_mapping
+#   namespace: ambassador
+# spec:
+#   prefix: /httpbin/
+#   service: httpbin.org:80
+#   host_rewrite: httpbin.org
