@@ -5,5 +5,5 @@ metadata:
   name: httpbin-mapping
 spec:
   prefix: /httpbin
-  host_rewrite: httpbin.org/get
-  service: http://httpbin.org
+  host_rewrite: httpbin.org
+  service: http://httpbin.org:80
