@@ -155,16 +155,16 @@ This is how it should looks like on the UI
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces
 
 **`ambassador`** namespace is dedicated for [Ambassador](https://www.getambassador.io), a lightweight Kubernetes-native microservices API gateway built on the Envoy Proxy which is mainly used for routing and supports canary deployments, traffic shadowing, rate limiting, authentication and more
-    ```bash
-    # retrieve EXTERNAL-IP
-    kubectl get service ambassador -n ambassador
-    [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
-    [open|xdg-open] http://<EXTERNAL-IP>/guestbook/
+```bash
+# retrieve EXTERNAL-IP
+kubectl get service ambassador -n ambassador
+[open|xdg-open] http://<EXTERNAL-IP>/httpbin/
+[open|xdg-open] http://<EXTERNAL-IP>/guestbook/
 
-    # debug ambassador
-    # http://localhost:8877/ambassador/v0/diag
-    kubectl port-forward ambassador-XXX 8877 -n ambassador
-    ```
+# debug ambassador
+# http://localhost:8877/ambassador/v0/diag
+kubectl port-forward ambassador-XXX 8877 -n ambassador
+```
 
 *TODO Service mesh*
 
