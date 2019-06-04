@@ -1,6 +1,5 @@
 ## Setup
 
-Docs
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) to run commands against Kubernetes clusters
 * [helm](https://helm.sh/docs/using_helm/#installing-helm) for templating purposes only
 * [argocd](https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli) CLI
