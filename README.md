@@ -154,7 +154,7 @@ This is how it should looks like on the UI
 
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces
 
-**`kube-system`** namespace is reserved for Kubernete system applications
+**`kube-system`** namespace is reserved for Kubernetes system applications
 
 * [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
     ```bash
@@ -191,20 +191,15 @@ https://istio.io
 https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715
 ```
 
-### Monitoring and Alerting
+**`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
-An Operator is software that encodes this domain knowledge and extends the Kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications.
+* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) manages Prometheus, Alertmanager, Grafana and more
 
-The Prometheus Operator creates, configures, and manages Prometheus monitoring instances.
+**Resources**
 
-> TODO Prometheus
-
-**Resources** TODO
-
-```
-https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html
-https://grafana.com/dashboards
-```
+* [Prometheus](https://prometheus.io/docs/introduction/overview)
+* Prometheus Operator - [Getting Started Guide](https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html)
+* Grafana - [Dashboards](https://grafana.com/dashboards)
 
 ### Logging
 
