@@ -1,0 +1,11 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: observe-project
+spec:
+  sourceRepos:
+    - https://github.com/helm/charts.git
+  destinations:
+    - namespace: observe
+      server: https://kubernetes.default.svc
