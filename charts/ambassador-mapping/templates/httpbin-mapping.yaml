@@ -8,14 +8,14 @@ spec:
   host_rewrite: httpbin.org
   service: httpbin.org:80
 
----
-apiVersion: getambassador.io/v1
-kind: Mapping
-metadata:
-  name: httpbin-2-mapping
-spec:
-  prefix: /
-  regex_headers:
-    refer: ".*httpbin"
-  host_rewrite: httpbin.org
-  service: httpbin.org:80
+# ---
+# apiVersion: getambassador.io/v1
+# kind: Mapping
+# metadata:
+#   name: httpbin-2-mapping
+# spec:
+#   prefix: /
+#   regex_headers:
+#     refer: ".*httpbin"
+#   host_rewrite: httpbin.org
+#   service: httpbin.org:80

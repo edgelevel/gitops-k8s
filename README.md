@@ -172,9 +172,26 @@ kubectl get service ambassador -n ambassador
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
 * [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
+    ```bash
+    # prometheus
+    kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
+    [open|xdg-open] http://localhost:8001
+
+    # alertmanager
+    kubectl port-forward service/prometheus-operator-alertmanager 8002:9093 -n observe
+    [open|xdg-open] http://localhost:8002
+
+    # grafana
+    # username: admin
+    # password: prom-operator
+    kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
+    [open|xdg-open] http://localhost:8003
+    ```
+    <!--
     * Prometheus `http://<EXTERNAL-IP>/prometheus`
     * Alertmanager `http://<EXTERNAL-IP>/alertmanager`
     * Grafana `http://<EXTERNAL-IP>/grafana` with default credentials `admin | prom-operator`
+    -->
 
 **Resources**
 
