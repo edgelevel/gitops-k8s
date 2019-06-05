@@ -4,6 +4,8 @@ kind: Mapping
 metadata:
   name: httpbin-mapping
 spec:
-  prefix: /httpbin/
+  host: httpbin.org
+  host_regex: false
+  prefix: /
+  rewrite: /
   service: httpbin.org:80
-  host_rewrite: httpbin.org
