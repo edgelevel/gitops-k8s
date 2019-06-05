@@ -158,6 +158,7 @@ Applications in this repository are defined in the parent [applications](applica
 ```bash
 # retrieve EXTERNAL-IP
 kubectl get service ambassador -n ambassador
+
 [open|xdg-open] http://<EXTERNAL-IP>/ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
@@ -173,7 +174,7 @@ kubectl get service ambassador -n ambassador
 * [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
     * Prometheus `http://<EXTERNAL-IP>/prometheus`
     * Alertmanager `http://<EXTERNAL-IP>/alertmanager`
-    * Grafana `http://<EXTERNAL-IP>/grafana` with default credentials `username: admin | password: prom-operator`
+    * Grafana `http://<EXTERNAL-IP>/grafana` with default credentials `admin | prom-operator`
 
 **Resources**
 
