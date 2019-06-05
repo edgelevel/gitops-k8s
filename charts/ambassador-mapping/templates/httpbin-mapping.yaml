@@ -1,0 +1,9 @@
+---
+apiVersion: getambassador.io/v1
+kind: Mapping
+metadata:
+  name: httpbin-mapping
+spec:
+  prefix: /httpbin/
+  host_rewrite: httpbin.org
+  service: https://httpbin.org:443

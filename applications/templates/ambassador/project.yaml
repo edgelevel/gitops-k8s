@@ -6,6 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - https://github.com/helm/charts.git
+    - https://github.com/edgelevel/gitops-k8s.git
   destinations:
     - namespace: ambassador
       server: https://kubernetes.default.svc
