@@ -2,10 +2,20 @@
 apiVersion: getambassador.io/v1
 kind: Mapping
 metadata:
-  name: httpbin-mapping
+  name: httpbin-1-mapping
 spec:
-  #host: httpbin.org
-  host_regex: false
   prefix: /httpbin/
+  host_rewrite: httpbin.org
+  service: httpbin.org:80
+
+---
+apiVersion: getambassador.io/v1
+kind: Mapping
+metadata:
+  name: httpbin-2-mapping
+spec:
+  host: httpbin.org
+  host_regex: false
+  prefix: /
   rewrite: /
   service: httpbin.org:80
