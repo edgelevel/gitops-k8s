@@ -6,4 +6,4 @@ metadata:
 spec:
   prefix: /httpbin/
   host_rewrite: httpbin.org
-  service: http://httpbin.org:80
+  service: https://httpbin.org:443
