@@ -6,6 +6,6 @@ metadata:
 spec:
   prefix: /httpbin/
   regex_headers:
-    refer: ".*\/httpbin\/"
+    refer: '.*\/httpbin\/'
   host_rewrite: httpbin.org
   service: httpbin.org:80
