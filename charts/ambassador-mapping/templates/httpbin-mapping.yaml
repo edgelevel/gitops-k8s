@@ -16,6 +16,6 @@ metadata:
 spec:
   host: httpbin.org
   host_regex: false
-  prefix: /
+  prefix: /httpbin/
   rewrite: /
   service: httpbin.org:80
