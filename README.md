@@ -154,42 +154,19 @@ This is how it should looks like on the UI
 
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces
 
-**`kube-system`** namespace is reserved for Kubernetes system applications
-
-* [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
-    ```bash
-    kubectl top node
-    kubectl top pod --all-namespaces
-    ```
-
-* [`spotify-docker-gc`](https://github.com/helm/charts/tree/master/stable/spotify-docker-gc) performs garbage collection in the Kubernetes cluster and the default configurations has the gc running once a day which:
-    * removes containers that exited more than a hour ago
-    * removes images that don't belong to any container
-    * removes volumes that are not associated to any remaining container
-
----
-
-### Service mesh
-
-> TODO Ambassador vs Istio
-
+**`ambassador`** namespace is dedicated for [Ambassador](https://www.getambassador.io), a lightweight Kubernetes-native microservices API gateway built on the Envoy Proxy which is mainly used for routing and supports canary deployments, traffic shadowing, rate limiting, authentication and more
 ```bash
 # retrieve EXTERNAL-IP
 kubectl get service ambassador -n ambassador
-[open|xdg-open] http://<EXTERNAL-IP>/guestbook/
-
-# debug ambassador
-# http://localhost:8877/ambassador/v0/diag
-kubectl port-forward ambassador-XXX 8877 -n ambassador
+[open|xdg-open] http://<EXTERNAL-IP>/ambassador
+[open|xdg-open] http://<EXTERNAL-IP>/httpbin/
+[open|xdg-open] http://<EXTERNAL-IP>/guestbook
 ```
 
-**Resources** TODO
+*TODO Service mesh*
 
-```
-https://www.getambassador.io
-https://istio.io
-https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715
-```
+* [Istio](https://istio.io)
+* [A Crash Course For Running Istio](https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715)
 
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
@@ -215,6 +192,21 @@ https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715
 * [Prometheus](https://prometheus.io/docs/introduction/overview)
 * Prometheus Operator - [Getting Started Guide](https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html)
 * Grafana - [Dashboards](https://grafana.com/dashboards)
+
+**`kube-system`** namespace is reserved for Kubernete system applications
+
+* [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
+    ```bash
+    kubectl top node
+    kubectl top pod --all-namespaces
+    ```
+
+* [`spotify-docker-gc`](https://github.com/helm/charts/tree/master/stable/spotify-docker-gc) performs garbage collection in the Kubernetes cluster and the default configurations have the gc running once a day which:
+    * removes containers that exited more than a hour ago
+    * removes images that don't belong to any container
+    * removes volumes that are not associated to any remaining container
+
+---
 
 ### Logging
 

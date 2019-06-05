@@ -1,0 +1,9 @@
+---
+apiVersion: getambassador.io/v1
+kind: Mapping
+metadata:
+  name: ambassador-mapping
+spec:
+  prefix: /ambassador
+  rewrite: /ambassador/v0/diag/
+  service: ambassador-admins.ambassador:8877

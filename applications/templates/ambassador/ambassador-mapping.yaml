@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ambassador-mapping
+spec:
+  project: ambassador-project
+  source:
+    repoURL: https://github.com/edgelevel/gitops-k8s.git
+    path: charts/ambassador-mapping
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ambassador

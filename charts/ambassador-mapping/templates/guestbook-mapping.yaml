@@ -1,0 +1,9 @@
+---
+apiVersion: getambassador.io/v1
+kind: Mapping
+metadata:
+  name: guestbook-mapping
+spec:
+  prefix: /guestbook
+  # SERVICE_LABEL.NAMESPACE:PORT
+  service: guestbook-ui.guestbook
