@@ -4,6 +4,6 @@ kind: Mapping
 metadata:
   name: httpbin-mapping
 spec:
-  prefix: /httpbin/
+  prefix: /httpbin
   host_rewrite: httpbin.org
   service: https://httpbin.org:443
