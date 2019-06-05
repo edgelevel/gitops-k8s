@@ -170,7 +170,7 @@ kubectl get service ambassador -n ambassador
 
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
-* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) manages Prometheus, Alertmanager, Grafana and more
+* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
     ```bash
     # prometheus
     kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
