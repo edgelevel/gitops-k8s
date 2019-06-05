@@ -16,6 +16,14 @@ spec:
           value: "false"
         - name: kubeScheduler.enabled
           value: "false"
+        - name: prometheus.prometheusSpec.externalUrl
+          value: ""
+        - name: prometheus.prometheusSpec.routePrefix
+          value: /prometheus/
+        - name: alertmanager.alertmanagerSpec.externalUrl
+          value: ""
+        - name: alertmanager.alertmanagerSpec.routePrefix
+          value: /alertmanager/
   destination:
     server: https://kubernetes.default.svc
     namespace: observe

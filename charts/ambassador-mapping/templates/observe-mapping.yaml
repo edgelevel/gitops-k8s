@@ -5,6 +5,7 @@ metadata:
   name: prometheus-mapping
 spec:
   prefix: /prometheus
+  rewrite: /
   service: prometheus-operator-prometheus.observe:9090
 
 ---
@@ -14,6 +15,7 @@ metadata:
   name: alertmanager-mapping
 spec:
   prefix: /alertmanager
+  rewrite: /
   service: prometheus-operator-alertmanager.observe:9093
 
 ---
