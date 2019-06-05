@@ -161,10 +161,6 @@ kubectl get service ambassador -n ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
-
-# debug ambassador
-# http://localhost:8877/ambassador/v0/diag
-kubectl port-forward ambassador-XXX 8877 -n ambassador
 ```
 
 *TODO Service mesh*
