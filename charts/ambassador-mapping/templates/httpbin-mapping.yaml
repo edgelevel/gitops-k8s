@@ -15,6 +15,6 @@ metadata:
   name: httpbin-2-mapping
 spec:
   regex_headers:
-    refer: '.*\/httpbin\/'
-  rewrite: /
+    refer: ".*httpbin"
+  host_rewrite: httpbin.org
   service: httpbin.org:80
