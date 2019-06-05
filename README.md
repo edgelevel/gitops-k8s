@@ -158,8 +158,9 @@ Applications in this repository are defined in the parent [applications](applica
 ```bash
 # retrieve EXTERNAL-IP
 kubectl get service ambassador -n ambassador
+[open|xdg-open] http://<EXTERNAL-IP>/ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
-[open|xdg-open] http://<EXTERNAL-IP>/guestbook/
+[open|xdg-open] http://<EXTERNAL-IP>/guestbook
 
 # debug ambassador
 # http://localhost:8877/ambassador/v0/diag
