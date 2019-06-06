@@ -121,7 +121,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
     kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 
     # port forward the service
-    kubectl port-forward svc/argocd-server -n argocd 8080:443
+    kubectl port-forward service/argocd-server -n argocd 8080:443
 
     # from the UI
     [open|xdg-open] https://localhost:8080
@@ -158,6 +158,7 @@ Applications in this repository are defined in the parent [applications](applica
 ```bash
 # retrieve EXTERNAL-IP
 kubectl get service ambassador -n ambassador
+
 [open|xdg-open] http://<EXTERNAL-IP>/ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
@@ -167,6 +168,31 @@ kubectl get service ambassador -n ambassador
 
 * [Istio](https://istio.io)
 * [A Crash Course For Running Istio](https://medium.com/namely-labs/a-crash-course-for-running-istio-1c6125930715)
+
+**`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
+
+* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
+    ```bash
+    # prometheus
+    kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
+    [open|xdg-open] http://localhost:8001
+
+    # alertmanager
+    kubectl port-forward service/prometheus-operator-alertmanager 8002:9093 -n observe
+    [open|xdg-open] http://localhost:8002
+
+    # grafana
+    # username: admin
+    # password: prom-operator
+    kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
+    [open|xdg-open] http://localhost:8003
+    ```
+
+**Resources**
+
+* [Prometheus](https://prometheus.io/docs/introduction/overview)
+* Prometheus Operator - [Getting Started Guide](https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html)
+* Grafana - [Dashboards](https://grafana.com/dashboards)
 
 **`kube-system`** namespace is reserved for Kubernete system applications
 
@@ -182,21 +208,6 @@ kubectl get service ambassador -n ambassador
     * removes volumes that are not associated to any remaining container
 
 ---
-
-### Monitoring and Alerting
-
-An Operator is software that encodes this domain knowledge and extends the Kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications.
-
-The Prometheus Operator creates, configures, and manages Prometheus monitoring instances.
-
-> TODO Prometheus
-
-**Resources** TODO
-
-```
-https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html
-https://grafana.com/dashboards
-```
 
 ### Logging
 
@@ -245,3 +256,4 @@ https://github.com/grafana/loki
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
+* [ ] How to test a branch - change target revision from the UI

@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: observe-project
+spec:
+  sourceRepos:
+    - https://github.com/helm/charts.git
+  destinations:
+    - namespace: observe
+      server: https://kubernetes.default.svc
+    - namespace: kube-system
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+    - group: policy
+      kind: PodSecurityPolicy
+    - group: extensions
+      kind: PodSecurityPolicy
