@@ -3,4 +3,7 @@ argocd:
   sourceRepos:
     # - https://github.com/niqdev/do-k8s.git
 
-repository: https://github.com/edgelevel/gitops-k8s.git
+repository:
+  url: https://github.com/edgelevel/gitops-k8s.git
+  # e.g. branch, SHA, tag
+  targetRevision: HEAD

@@ -5,7 +5,7 @@ metadata:
   name: argocd-project
 spec:
   sourceRepos:
-    - {{ .Values.repository }}
+    - {{ .Values.repository.url }}
     - https://github.com/edgelevel/helm-charts.git
     {{- range .Values.argocd.sourceRepos }}
     - {{ . }}
