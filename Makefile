@@ -8,6 +8,7 @@ ifndef HELM
 	$(error "helm" not found)
 endif
 
+# publish to https://edgelevel.github.io/gitops-k8s
 .PHONY: publish-seed
 publish-seed: requirements
 	./scripts/publish-seed.sh

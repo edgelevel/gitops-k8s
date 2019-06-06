@@ -4,5 +4,5 @@ before_install:
   - curl -L https://git.io/get_helm.sh | bash
 
 script:
-  # TODO iterate over each folder that has Chart.yaml
-  - helm lint seed/ applications/
+  # verify all charts
+  - find . -maxdepth 3 -type f -name 'Chart.yaml' -exec dirname {} \; | xargs helm lint

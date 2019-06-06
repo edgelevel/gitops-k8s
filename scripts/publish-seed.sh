@@ -11,7 +11,7 @@ cd ${CURRENT_PATH}
 ##############################
 
 ROOT_PATH="${CURRENT_PATH}/.."
-SEED_PATH="${ROOT_PATH}/seed/"
+SEED_PATH="${ROOT_PATH}/charts/seed/"
 TMP_REPOSITORY="tmp-gh-pages"
 
 cd ${SEED_PATH}
