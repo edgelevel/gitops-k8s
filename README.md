@@ -137,7 +137,7 @@ Most of the steps have been kept manual on purpose, but they should be automated
     # port forward the service
     kubectl port-forward service/guestbook-ui -n guestbook 8081:80
     # open browser
-    [open|xdg-open] https://localhost:8081
+    [open|xdg-open] http://localhost:8081
     ```
 
 This is how it should looks like on the UI
@@ -162,7 +162,7 @@ kubectl get service ambassador -n ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
 
 # debug ambassador
-kubectl port-forward ambassador-XXX 8877 -n ambassador
+kubectl port-forward service/ambassador-admins 8877 -n ambassador
 [open|xdg-open] http://localhost:8877/ambassador/v0/diag
 ```
 
