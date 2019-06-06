@@ -2,10 +2,17 @@ apiVersion: v1
 entries:
   seed:
   - apiVersion: v1
-    created: "2019-05-27T16:28:04.474654851+01:00"
+    created: 2019-06-06T14:42:43.722002+01:00
+    digest: 1349c1f2115dc2b48938e70991e078036aeddb4cfccc1cf0861f3ad98843e665
+    name: seed
+    urls:
+    - seed-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v1
+    created: 2019-06-06T14:42:43.721275+01:00
     digest: edca54e15f7493cc2f23073312bb8767ce5d2208a4d2d944fd881d9c0e274fb0
     name: seed
     urls:
     - seed-0.3.0.tgz
     version: 0.3.0
-generated: "2019-05-27T16:28:04.473931868+01:00"
+generated: 2019-06-06T14:42:43.720397+01:00
