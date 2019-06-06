@@ -85,9 +85,9 @@ Observability is a source of truth for the actual running state of the system ri
 
 ## Argo CD
 
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts
+Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
 
-This guide will explain how to setup in few steps the whole infrastructure via GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily run it on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes), [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example
+This guide will explain how to setup in few steps the whole infrastructure via GitOps with Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily run it on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes), [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
 
 <!--
 You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
@@ -95,7 +95,7 @@ You need to embrace failures if you want to have the ability to heal and recover
 
 ![architecture](docs/img/architecture.png)
 
-Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment
+Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
 
 ### Prerequisites
 
@@ -129,7 +129,6 @@ Most of the steps have been kept manual on purpose, but they should be automated
     argocd login localhost:8080 --username admin
     ```
     * You might need to *Allow invalid certificates for resources loaded from localhost* on Chrome enabling the flag `chrome://flags/#allow-insecure-localhost` to access it
-    * *TODO config Ambassador*
 4. First time only sync all the `OutOfSync` applications
     * manually
     * *TODO with a cronjob (optional)*
@@ -152,19 +151,22 @@ This is how it should looks like on the UI
 
 ## Applications
 
-Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces
+Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces.
 
 **`ambassador`** namespace is dedicated for [Ambassador](https://www.getambassador.io), a lightweight Kubernetes-native microservices API gateway built on the Envoy Proxy which is mainly used for routing and supports canary deployments, traffic shadowing, rate limiting, authentication and more
 ```bash
 # retrieve EXTERNAL-IP
 kubectl get service ambassador -n ambassador
-
 [open|xdg-open] http://<EXTERNAL-IP>/ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
+
+# debug ambassador
+kubectl port-forward ambassador-XXX 8877 -n ambassador
+[open|xdg-open] http://localhost:8877/ambassador/v0/diag
 ```
 
-*Ambassador `Mapping` samples above are disabled by default because the recommended way is to use host-based routing which requires a domain*
+*Ambassador `Mapping` samples above are [disabled](applications/values.yaml) by default because the recommended way is to use host-based routing which requires a domain*
 
 *TODO For a working example on DigitalOcean using [`external-dns`](https://github.com/helm/charts/tree/master/stable/external-dns) you can have a look at [niqdev/do-k8s](https://github.com/niqdev/do-k8s)*
 
@@ -249,13 +251,11 @@ https://github.com/grafana/loki
 * [ ] argocd: override default `admin.password`
 * [ ] argocd: example login with GitHub
 * [ ] argocd: explain solution of how to sync automatically first time with cronjob
-* [ ] argocd: fix Ambassador routes in LoadBalancer configs
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] [kube-monkey](https://github.com/asobti/kube-monkey) or [chaoskube](https://github.com/helm/charts/tree/master/stable/chaoskube)
 * [ ] switch cluster via DNS
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
 * [ ] stateless vs stateful: how to restore state if source of truth
-* [ ] [external-dns](https://github.com/kubernetes-incubator/external-dns)
 * [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
