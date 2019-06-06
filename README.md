@@ -85,9 +85,9 @@ Observability is a source of truth for the actual running state of the system ri
 
 ## Argo CD
 
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts.
+Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of the desired application states in the specified target environments. In this project Kubernetes manifests are specified as [helm](https://helm.sh/docs) charts
 
-This guide will explain how to setup in few steps the whole infrastructure on DigitalOcean via GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily port it on [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example.
+This guide will explain how to setup in few steps the whole infrastructure via GitOps and Argo CD. Note that it's not tightly coupled to any specific vendor and you should be able to easily run it on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes), [EKS](https://aws.amazon.com/eks) or [GKE](https://cloud.google.com/kubernetes-engine) for example
 
 <!--
 You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
@@ -95,12 +95,12 @@ You need to embrace failures if you want to have the ability to heal and recover
 
 ![architecture](docs/img/architecture.png)
 
-Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
+Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment
 
 ### Prerequisites
 
-* Setup [guide](docs/setup.md)
-* Create a Kubernetes cluster on [DigitalOcean](https://www.digitalocean.com/docs/kubernetes)
+* [Setup](docs/setup.md) required tools
+* Create a Kubernetes cluster locally or with your favourite provider
 * Download the cluster configs and test connection
     ```bash
     export KUBECONFIG=~/.kube/<CLUSTER_NAME>-kubeconfig.yaml
@@ -163,6 +163,10 @@ kubectl get service ambassador -n ambassador
 [open|xdg-open] http://<EXTERNAL-IP>/httpbin/
 [open|xdg-open] http://<EXTERNAL-IP>/guestbook
 ```
+
+*Ambassador `Mapping` samples above are disabled by default because the recommended way is to use host-based routing which requires a domain*
+
+*TODO For a working example on DigitalOcean using [`external-dns`](https://github.com/helm/charts/tree/master/stable/external-dns) you can have a look at [niqdev/do-k8s](https://github.com/niqdev/do-k8s)*
 
 *TODO Service mesh*
 
