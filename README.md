@@ -187,11 +187,6 @@ kubectl get service ambassador -n ambassador
     kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
     [open|xdg-open] http://localhost:8003
     ```
-    <!--
-    * Prometheus `http://<EXTERNAL-IP>/prometheus`
-    * Alertmanager `http://<EXTERNAL-IP>/alertmanager`
-    * Grafana `http://<EXTERNAL-IP>/grafana` with default credentials `admin | prom-operator`
-    -->
 
 **Resources**
 
