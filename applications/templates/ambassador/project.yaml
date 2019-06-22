@@ -1,3 +1,4 @@
+{{- if .Values.ambassador.enabled }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -6,9 +7,7 @@ metadata:
 spec:
   sourceRepos:
     - https://github.com/helm/charts.git
-    {{- if .Values.ambassadorMapping.enabled }}
     - https://github.com/edgelevel/gitops-k8s.git
-    {{- end }}
   destinations:
     - namespace: ambassador
       server: https://kubernetes.default.svc
@@ -19,3 +18,4 @@ spec:
       kind: ClusterRole
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
+{{- end }}
