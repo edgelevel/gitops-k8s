@@ -166,7 +166,7 @@ kubectl port-forward service/ambassador-admins 8877 -n ambassador
 [open|xdg-open] http://localhost:8877/ambassador/v0/diag
 ```
 
-*Ambassador `Mapping` samples above are [disabled](applications/values.yaml) by default because the recommended way is to use host-based routing which requires a domain*
+*Ambassador is [disabled](applications/values.yaml) by default because the recommended way is to use host-based routing which requires a domain*
 
 *TODO For a working example on DigitalOcean using [`external-dns`](https://github.com/helm/charts/tree/master/stable/external-dns) you can have a look at [niqdev/do-k8s](https://github.com/niqdev/do-k8s)*
 
