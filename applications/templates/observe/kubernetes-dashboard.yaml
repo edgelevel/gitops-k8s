@@ -8,6 +8,10 @@ spec:
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/kubernetes-dashboard
+    helm:
+      parameters:
+        - name: enableInsecureLogin
+          value: "true" 
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
