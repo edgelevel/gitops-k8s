@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard
+spec:
+  project: observe-project
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/kubernetes-dashboard
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observe
