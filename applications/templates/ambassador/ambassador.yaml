@@ -5,7 +5,7 @@ kind: Application
 metadata:
   name: ambassador
 spec:
-  project: ambassador-project
+  project: ambassador
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/ambassador
