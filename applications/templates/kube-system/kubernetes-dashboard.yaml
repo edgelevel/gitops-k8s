@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: kubernetes-dashboard
 spec:
-  project: observe-project
+  project: kube-system-project
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/kubernetes-dashboard
@@ -14,4 +14,4 @@ spec:
           value: "true" 
   destination:
     server: https://kubernetes.default.svc
-    namespace: observe
+    namespace: kube-system
