@@ -10,6 +10,8 @@ spec:
     path: stable/kubernetes-dashboard
     helm:
       parameters:
+        - name: enableSkipLogin
+          value: "true" 
         - name: enableInsecureLogin
           value: "true" 
   destination:
