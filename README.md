@@ -205,6 +205,11 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [Prometheus](https://prometheus.io/docs/introduction/overview)
 * Prometheus Operator - [Getting Started Guide](https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html)
 * Grafana - [Dashboards](https://grafana.com/dashboards)
+* [Fluent Bit](https://docs.fluentbit.io/manual)
+* [Logging Best Practices for Kubernetes using Elasticsearch, Fluent Bit and Kibana](https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee)
+* [Exporting Kubernetes Logs to Elasticsearch Using Fluent Bit](https://supergiant.io/blog/exporting-kubernetes-logs-to-elasticsearch-using-fluent-bit)
+* [Fluentd vs. Fluent Bit: Side by Side Comparison](https://logz.io/blog/fluentd-vs-fluent-bit)
+* [Logging & Monitoring of Kubernetes Applications: Requirements & Recommended Toolset](https://platform9.com/blog/logging-monitoring-of-kubernetes-applications-requirements-recommended-toolset)
 
 **`kube-system`** namespace is reserved for Kubernete system applications
 
@@ -231,22 +236,9 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 > TODO Fluent Bit and Elasticsearch
 
-**Resources** TODO
+**Resources**
 
 ```
-https://supergiant.io/blog/exporting-kubernetes-logs-to-elasticsearch-using-fluent-bit
-https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee
-https://docs.fluentbit.io/manual/installation/kubernetes
-https://akomljen.com/get-kubernetes-logs-with-efk-stack-in-5-minutes
-https://blog.zufardhiyaulhaq.com/setup-efk-elasticsearch-fluent-bit-kibana-stack-in-kubernetes
-https://logz.io/blog/fluentd-vs-fluent-bit
-
-# kubernetes logging
-https://platform9.com/blog/logging-monitoring-of-kubernetes-applications-requirements-recommended-toolset
-https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration
-https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-2-elasticsearch-configuration
-https://logz.io/blog/kubernetes-log-analysis
-https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee
 # tools
 http://fluentbit.org
 https://github.com/giantswarm/curator
