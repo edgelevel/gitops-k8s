@@ -5,7 +5,7 @@ kind: Application
 metadata:
   name: ambassador-mapping
 spec:
-  project: ambassador-project
+  project: ambassador
   source:
     repoURL: https://github.com/edgelevel/gitops-k8s.git
     path: charts/ambassador-mapping

@@ -3,7 +3,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: ambassador-project
+  name: ambassador
 spec:
   sourceRepos:
     - https://github.com/helm/charts.git
