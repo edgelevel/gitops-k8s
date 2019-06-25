@@ -8,9 +8,9 @@ spec:
   source:
     repoURL: https://github.com/elastic/helm-charts.git
     path: stable/elasticsearch
-    helm:
-      valueFiles:
-      - examples/minikube/values.yaml
+    #helm:
+    #  valueFiles:
+    #  - examples/minikube/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: observe

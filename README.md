@@ -177,7 +177,7 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
-* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
+* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager and Grafana
     ```bash
     # prometheus
     kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
@@ -199,6 +199,18 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
     kubectl port-forward service/kube-ops-view-kube-ops-view -n observe 8004:80
     [open|xdg-open] http://localhost:8004
     ```
+
+*EFK stack for logging*
+
+* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch)
+
+* [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro)
+
+* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana)
+
+* [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit)
+
+* [`curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator)
 
 **Resources**
 
