@@ -168,7 +168,7 @@ kubectl port-forward service/ambassador-admins 8877 -n ambassador
 
 *Ambassador is [disabled](applications/values.yaml) by default because the recommended way is to use host-based routing which requires a domain*
 
-*TODO For a working example on DigitalOcean using [`external-dns`](https://github.com/helm/charts/tree/master/stable/external-dns) you can have a look at [niqdev/do-k8s](https://github.com/niqdev/do-k8s)*
+For a working example on DigitalOcean using [`external-dns`](https://github.com/helm/charts/tree/master/stable/external-dns) you can have a look at [niqdev/do-k8s](https://github.com/niqdev/do-k8s)
 
 *TODO Service mesh*
 
@@ -194,6 +194,12 @@ kubectl port-forward service/ambassador-admins 8877 -n ambassador
     [open|xdg-open] http://localhost:8003
     ```
 
+* [`kube-ops-view`](https://github.com/helm/charts/tree/master/stable/kube-ops-view) provides a read-only system dashboard for multiple k8s clusters
+    ```bash
+    kubectl port-forward service/kube-ops-view-kube-ops-view -n observe 8004:80
+    [open|xdg-open] http://localhost:8004
+    ```
+
 **Resources**
 
 * [Prometheus](https://prometheus.io/docs/introduction/overview)
@@ -201,6 +207,12 @@ kubectl port-forward service/ambassador-admins 8877 -n ambassador
 * Grafana - [Dashboards](https://grafana.com/dashboards)
 
 **`kube-system`** namespace is reserved for Kubernete system applications
+
+* [`kubernetes-dashboard`](https://github.com/helm/charts/tree/master/stable/kubernetes-dashboard) is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself
+    ```bash
+    kubectl port-forward service/kubernetes-dashboard -n kube-system 8000:443
+    [open|xdg-open] http://localhost:8000
+    ```
 
 * [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
     ```bash
