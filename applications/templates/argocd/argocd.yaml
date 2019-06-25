@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: argocd
 spec:
-  project: argocd-project
+  project: argocd
   source:
     repoURL: https://github.com/edgelevel/helm-charts.git
     path: argocd

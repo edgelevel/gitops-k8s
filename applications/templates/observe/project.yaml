@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: observe-project
+  name: observe
 spec:
   sourceRepos:
     - https://github.com/helm/charts.git

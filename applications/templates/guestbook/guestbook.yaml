@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: guestbook
 spec:
-  project: guestbook-project
+  project: guestbook
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     path: guestbook

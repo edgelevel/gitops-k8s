@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: applications
 spec:
-  project: argocd-project
+  project: argocd
   source:
     repoURL: {{ .Values.repository.url }}
     targetRevision: {{ .Values.repository.targetRevision }}
