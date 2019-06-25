@@ -7,7 +7,7 @@ spec:
   project: observe
   source:
     repoURL: https://github.com/elastic/helm-charts.git
-    path: stable/kibana
+    path: kibana
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
