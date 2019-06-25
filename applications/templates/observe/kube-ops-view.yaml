@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: kube-ops-view
 spec:
-  project: observe-project
+  project: observe
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/kube-ops-view
