@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard
+spec:
+  project: kube-system
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/kubernetes-dashboard
+    helm:
+      parameters:
+        - name: enableSkipLogin
+          value: "true" 
+        - name: enableInsecureLogin
+          value: "true" 
+        - name: rbac.clusterReadOnlyRole
+          value: "true" 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
