@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: kubernetes-dashboard
 spec:
-  project: kube-system-project
+  project: kube-system
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/kubernetes-dashboard

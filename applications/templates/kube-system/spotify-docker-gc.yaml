@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: spotify-docker-gc
 spec:
-  project: kube-system-project
+  project: kube-system
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/spotify-docker-gc

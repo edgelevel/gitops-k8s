@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: kube-system-project
+  name: kube-system
 spec:
   clusterResourceWhitelist:
   - group: rbac.authorization.k8s.io
