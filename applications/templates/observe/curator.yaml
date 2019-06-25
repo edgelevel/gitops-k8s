@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: curator
+spec:
+  project: observe
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/elasticsearch-curator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observe
