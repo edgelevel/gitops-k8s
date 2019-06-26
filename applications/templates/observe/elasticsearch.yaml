@@ -9,8 +9,24 @@ spec:
     repoURL: https://github.com/elastic/helm-charts.git
     path: elasticsearch
     helm:
-      valueFiles:
-      - examples/minikube/values.yaml
+      #valueFiles:
+      #  - examples/minikube/values.yaml
+      parameters:
+        - name: antiAffinity
+          value: "soft"
+        - name: esJavaOpts
+          value: "-Xmx128m -Xms128m"
+        - name: resources.requests.cpu
+          value: "100m"
+        - name: resources.requests.memory
+          value: "512M"
+        - name: resources.limits.memory
+          value: "512M"
+        - name: volumeClaimTemplate.resources.requests.storage
+          value: "1Gi"
+        - name: volumeClaimTemplate.storageClassName
+          #value: "standard"
+          value: "do-block-storage"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
