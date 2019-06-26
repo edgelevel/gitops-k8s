@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/elastic/helm-charts.git
     path: elasticsearch
     helm:
-      # ??? not able to override values when using file
+      # you can't override values from the ui when using file
       #valueFiles:
       #  - examples/minikube/values.yaml
       parameters:
@@ -27,7 +27,6 @@ spec:
           value: "1Gi"
         - name: volumeClaimTemplate.storageClassName
           value: "standard"
-          #value: "do-block-storage"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
