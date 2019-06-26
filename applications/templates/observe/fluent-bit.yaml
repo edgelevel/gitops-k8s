@@ -8,6 +8,10 @@ spec:
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/fluent-bit
+    helm:
+      parameters:
+        - name: rbac.apiVersion
+          value: rbac.authorization.k8s.io/v1
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
