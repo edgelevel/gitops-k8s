@@ -16,9 +16,9 @@ spec:
           value: "false"
         - name: backend.type
           value: es
-        - name: backend.type.host
+        - name: backend.es.host
           value: http://elasticsearch-master.observe
-        - name: backend.type.port
+        - name: backend.es.port
           value: "9200"
   destination:
     server: https://kubernetes.default.svc
