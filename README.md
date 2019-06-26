@@ -221,7 +221,7 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
     ```
 * [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit)
 
-* [`curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator)
+* [`elasticsearch-curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator) or [`curator`](https://github.com/giantswarm/curator)
 
 **Resources**
 
@@ -233,6 +233,7 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [Exporting Kubernetes Logs to Elasticsearch Using Fluent Bit](https://supergiant.io/blog/exporting-kubernetes-logs-to-elasticsearch-using-fluent-bit)
 * [Fluentd vs. Fluent Bit: Side by Side Comparison](https://logz.io/blog/fluentd-vs-fluent-bit)
 * [Logging & Monitoring of Kubernetes Applications: Requirements & Recommended Toolset](https://platform9.com/blog/logging-monitoring-of-kubernetes-applications-requirements-recommended-toolset)
+* [Loki](https://github.com/grafana/loki)
 
 **`kube-system`** namespace is reserved for Kubernete system applications
 
@@ -255,23 +256,6 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 ---
 
-### Logging
-
-> TODO Fluent Bit and Elasticsearch
-
-**Resources**
-
-```
-# tools
-http://fluentbit.org
-https://github.com/giantswarm/curator
-# cerebro
-http://www.atechref.com/blog/elk-stack/elk-stack-monitor-elastic-nodes
-
-# grafana logs
-https://github.com/grafana/loki
-```
-
 ## TODO (not in order)
 
 * [ ] argocd: example secrets for private charts
@@ -283,8 +267,7 @@ https://github.com/grafana/loki
 * [ ] switch cluster via DNS
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
 * [ ] stateless vs stateful: how to restore state if source of truth
-* [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
-* [ ] How to test a branch - change target revision from the UI
+* [ ] Explain how to test a branch - change target revision from the UI
