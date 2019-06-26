@@ -8,6 +8,12 @@ spec:
   source:
     repoURL: https://github.com/helm/charts.git
     path: stable/cerebro
+    helm:
+      parameters:
+        - name: config.hosts[0].host
+          value: http://elasticsearch-master.observe:9200
+        - name: config.hosts[0].name
+          value: elasticsearch-master
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
