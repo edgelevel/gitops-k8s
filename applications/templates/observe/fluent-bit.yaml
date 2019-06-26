@@ -14,6 +14,12 @@ spec:
           value: "false"
         - name: serviceAccount.create
           value: "false"
+        - name: backend.type
+          value: es
+        - name: backend.type.host
+          value: http://elasticsearch-master.observe
+        - name: backend.type.port
+          value: "9200"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
