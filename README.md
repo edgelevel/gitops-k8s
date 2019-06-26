@@ -200,14 +200,25 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
     [open|xdg-open] http://localhost:8004
     ```
 
-*EFK stack for logging*
+*TODO EFK stack for logging*
 
 * [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch)
+    ```bash
+    kubectl port-forward service/elasticsearch-master 9200:9200 -n observe
+    [open|xdg-open] http://localhost:9200
+    ```
 
 * [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro)
+    ```bash
+    kubectl port-forward service/cerebro 9000:80 -n observe
+    [open|xdg-open] http://localhost:9000
+    ```
 
 * [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana)
-
+    ```bash
+    kubectl port-forward service/kibana-kibana 9001:5601 -n observe
+    [open|xdg-open] http://localhost:9001
+    ```
 * [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit)
 
 * [`curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator)

@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/elastic/helm-charts.git
     path: elasticsearch
     helm:
-      # you can't override values from the ui when using file
+      # values from the ui can't be overriden when using file
       #valueFiles:
       #  - examples/minikube/values.yaml
       parameters:

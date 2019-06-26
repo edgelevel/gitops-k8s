@@ -17,7 +17,7 @@ spec:
         - name: backend.type
           value: es
         - name: backend.es.host
-          value: http://elasticsearch-master.observe
+          value: elasticsearch-master.observe
         - name: backend.es.port
           value: "9200"
   destination:
