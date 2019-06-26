@@ -10,8 +10,10 @@ spec:
     path: stable/fluent-bit
     helm:
       parameters:
-        - name: rbac.apiVersion
-          value: rbac.authorization.k8s.io/v1
+        - name: rbac.create
+          value: "false"
+        - name: serviceAccount.create
+          value: "false"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
