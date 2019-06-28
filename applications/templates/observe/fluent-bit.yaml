@@ -20,6 +20,29 @@ spec:
           value: elasticsearch-master.observe
         - name: backend.es.port
           value: "9200"
+          #parsers.conf: |
+          #  [PARSER]
+          #    Name        docker
+          #    Format      json
+          #    Time_Key    time
+          #    Time_Format %Y-%m-%dT%H:%M:%S.%L
+          #    Time_Keep   On
+          #    # Command      |  Decoder | Field | Optional Action
+          #    # =============|==================|=================
+          #    Decode_Field_As   escaped_utf8    log    do_next
+          #    Decode_Field_As   json            log
+        - name: parsers.enabled
+          value: "true"
+        - name: parsers.json[0].name
+          value: "docker"
+        - name: parsers.json[0].timeKeep
+          value: "On"
+        - name: parsers.json[0].timeKey
+          value: "time"
+        - name: parsers.json[0].timeFormat
+          value: "%Y-%m-%dT%H:%M:%S.%L"
+        - name: parsers.json[0].extraEntries
+          value: "|\nDecode_Field_As escaped_utf8 log do_next\nDecode_Field_As json log"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
