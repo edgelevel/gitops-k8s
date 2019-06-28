@@ -42,7 +42,7 @@ spec:
         - name: parsers.json[0].timeFormat
           value: "%Y-%m-%dT%H:%M:%S.%L"
         - name: parsers.json[0].extraEntries
-          value: "|\nDecode_Field_As escaped_utf8 log do_next\nDecode_Field_As json log"
+          value: "\nDecode_Field_As escaped_utf8 log do_next\nDecode_Field_As json log"
   destination:
     server: https://kubernetes.default.svc
     namespace: observe
