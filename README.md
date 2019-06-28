@@ -200,28 +200,28 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
     [open|xdg-open] http://localhost:8004
     ```
 
-*TODO EFK stack for logging*
+*EFK stack for logging*
 
-* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch)
+* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch) is a distributed, RESTful search and analytics engine and it's is used for log storage
     ```bash
     kubectl port-forward service/elasticsearch-master 9200:9200 -n observe
     [open|xdg-open] http://localhost:9200
     ```
 
-* [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro)
+* [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro) is an Elasticsearch web admin tool
     ```bash
     kubectl port-forward service/cerebro 9000:80 -n observe
     [open|xdg-open] http://localhost:9000
     ```
 
-* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana)
+* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana) lets visualize and query the log data stored in an Elasticsearch index
     ```bash
     kubectl port-forward service/kibana-kibana 9001:5601 -n observe
     [open|xdg-open] http://localhost:9001
     ```
-* [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit)
+* [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit) is a fast and lightweight Log Processor and Forwarder
 
-* [`elasticsearch-curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator) or [`curator`](https://github.com/giantswarm/curator)
+* [`elasticsearch-curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator) or [`curator`](https://github.com/giantswarm/curator) helps to curate, or manage, Elasticsearch indices and snapshots
 
 **Resources**
 
