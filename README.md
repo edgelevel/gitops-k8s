@@ -264,9 +264,3 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
 * [ ] Explain how to test a branch - change target revision from the UI
 * [ ] TODO fix `alertmanager: error: unrecognized log format "<nil>", try --help`
-* [ ] TODO fix kubernetes-dashboard
-    ```
-    Storing encryption key in a secret
-    panic: secrets is forbidden: User "system:serviceaccount:kube-system:kubernetes-dashboard" cannot create resource "secrets
-    " in API group "" in the namespace "kube-system"
-    ```
