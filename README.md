@@ -177,41 +177,62 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 **`observe`** namespace is dedicated for observability and in the specific Monitoring, Alerting and Logging
 
-* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager, Grafana and more
+* [`prometheus-operator`](https://github.com/helm/charts/tree/master/stable/prometheus-operator) provides monitoring and alerting managing Prometheus, Alertmanager and Grafana
     ```bash
     # prometheus
     kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
-    [open|xdg-open] http://localhost:8001
 
     # alertmanager
     kubectl port-forward service/prometheus-operator-alertmanager 8002:9093 -n observe
-    [open|xdg-open] http://localhost:8002
 
     # grafana
     # username: admin
     # password: prom-operator
     kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
-    [open|xdg-open] http://localhost:8003
     ```
 
 * [`kube-ops-view`](https://github.com/helm/charts/tree/master/stable/kube-ops-view) provides a read-only system dashboard for multiple k8s clusters
     ```bash
     kubectl port-forward service/kube-ops-view-kube-ops-view -n observe 8004:80
-    [open|xdg-open] http://localhost:8004
     ```
+
+*EFK stack for logging*
+
+* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch) is a distributed, RESTful search and analytics engine and it's is used for log storage
+    ```bash
+    kubectl port-forward service/elasticsearch-master 9200:9200 -n observe
+    ```
+
+* [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro) is an Elasticsearch web admin tool
+    ```bash
+    kubectl port-forward service/cerebro 9000:80 -n observe
+    ```
+
+* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana) visualize and query the log data stored in an Elasticsearch index
+    ```bash
+    kubectl port-forward service/kibana-kibana 9001:5601 -n observe
+    ```
+* [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit) is a fast and lightweight Log Processor and Forwarder
+
+* [`elasticsearch-curator`](https://github.com/helm/charts/tree/master/stable/elasticsearch-curator) or [`curator`](https://github.com/giantswarm/curator) helps to curate, or manage, Elasticsearch indices and snapshots
 
 **Resources**
 
 * [Prometheus](https://prometheus.io/docs/introduction/overview)
 * Prometheus Operator - [Getting Started Guide](https://coreos.com/operators/prometheus/docs/latest/user-guides/getting-started.html)
 * Grafana - [Dashboards](https://grafana.com/dashboards)
+* [Fluent Bit](https://docs.fluentbit.io/manual)
+* [Logging Best Practices for Kubernetes using Elasticsearch, Fluent Bit and Kibana](https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee)
+* [Exporting Kubernetes Logs to Elasticsearch Using Fluent Bit](https://supergiant.io/blog/exporting-kubernetes-logs-to-elasticsearch-using-fluent-bit)
+* [Fluentd vs. Fluent Bit: Side by Side Comparison](https://logz.io/blog/fluentd-vs-fluent-bit)
+* [Logging & Monitoring of Kubernetes Applications: Requirements & Recommended Toolset](https://platform9.com/blog/logging-monitoring-of-kubernetes-applications-requirements-recommended-toolset)
+* [Loki](https://github.com/grafana/loki)
 
 **`kube-system`** namespace is reserved for Kubernete system applications
 
 * [`kubernetes-dashboard`](https://github.com/helm/charts/tree/master/stable/kubernetes-dashboard) is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself
     ```bash
     kubectl port-forward service/kubernetes-dashboard -n kube-system 8000:443
-    [open|xdg-open] http://localhost:8000
     ```
 
 * [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
@@ -227,36 +248,6 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 ---
 
-### Logging
-
-> TODO Fluent Bit and Elasticsearch
-
-**Resources** TODO
-
-```
-https://supergiant.io/blog/exporting-kubernetes-logs-to-elasticsearch-using-fluent-bit
-https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee
-https://docs.fluentbit.io/manual/installation/kubernetes
-https://akomljen.com/get-kubernetes-logs-with-efk-stack-in-5-minutes
-https://blog.zufardhiyaulhaq.com/setup-efk-elasticsearch-fluent-bit-kibana-stack-in-kubernetes
-https://logz.io/blog/fluentd-vs-fluent-bit
-
-# kubernetes logging
-https://platform9.com/blog/logging-monitoring-of-kubernetes-applications-requirements-recommended-toolset
-https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration
-https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-2-elasticsearch-configuration
-https://logz.io/blog/kubernetes-log-analysis
-https://itnext.io/logging-best-practices-for-kubernetes-using-elasticsearch-fluent-bit-and-kibana-be9b7398dfee
-# tools
-http://fluentbit.org
-https://github.com/giantswarm/curator
-# cerebro
-http://www.atechref.com/blog/elk-stack/elk-stack-monitor-elastic-nodes
-
-# grafana logs
-https://github.com/grafana/loki
-```
-
 ## TODO (not in order)
 
 * [ ] argocd: example secrets for private charts
@@ -268,8 +259,7 @@ https://github.com/grafana/loki
 * [ ] switch cluster via DNS
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
 * [ ] stateless vs stateful: how to restore state if source of truth
-* [ ] TODO explain how to use this repo: bootstrap and reuse shared charts
 * [ ] Example with multiple providers: DigitalOcean, EKS, GKE
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
-* [ ] How to test a branch - change target revision from the UI
+* [ ] Explain how to test a branch - change target revision from the UI

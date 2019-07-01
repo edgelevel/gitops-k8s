@@ -6,6 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - https://github.com/helm/charts.git
+    - https://github.com/elastic/helm-charts.git
   destinations:
     - namespace: observe
       server: https://kubernetes.default.svc

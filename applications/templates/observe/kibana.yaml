@@ -1,0 +1,13 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kibana
+spec:
+  project: observe
+  source:
+    repoURL: https://github.com/elastic/helm-charts.git
+    path: kibana
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observe

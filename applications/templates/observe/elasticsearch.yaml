@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: elasticsearch
+spec:
+  project: observe
+  source:
+    repoURL: https://github.com/elastic/helm-charts.git
+    path: elasticsearch
+    helm:
+      # see https://github.com/elastic/helm-charts/blob/master/elasticsearch/examples/minikube/values.yaml
+      parameters:
+        - name: antiAffinity
+          value: "soft"
+        - name: esJavaOpts
+          value: "-Xmx128m -Xms128m"
+        - name: resources.requests.cpu
+          value: "100m"
+        - name: resources.requests.memory
+          value: "512M"
+        - name: resources.limits.memory
+          value: "512M"
+        - name: volumeClaimTemplate.resources.requests.storage
+          value: "1Gi"
+        - name: volumeClaimTemplate.storageClassName
+          value: "standard"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observe

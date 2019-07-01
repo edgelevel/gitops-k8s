@@ -1,0 +1,37 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fluent-bit
+spec:
+  project: observe
+  source:
+    repoURL: https://github.com/helm/charts.git
+    path: stable/fluent-bit
+    helm:
+      parameters:
+        - name: rbac.create
+          value: "false"
+        - name: serviceAccount.create
+          value: "false"
+        - name: backend.type
+          value: es
+        - name: backend.es.host
+          value: elasticsearch-master.observe
+        - name: backend.es.port
+          value: "9200"
+        - name: parsers.enabled
+          value: "true"
+        - name: parsers.json[0].name
+          value: "docker"
+        - name: parsers.json[0].timeKeep
+          value: "On"
+        - name: parsers.json[0].timeKey
+          value: "time"
+        - name: parsers.json[0].timeFormat
+          value: "%Y-%m-%dT%H:%M:%S.%L"
+        - name: parsers.json[0].extraEntries
+          value: "\nDecode_Field_As escaped_utf8 log do_next\nDecode_Field_As json log"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observe
