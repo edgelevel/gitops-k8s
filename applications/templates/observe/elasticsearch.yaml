@@ -9,9 +9,7 @@ spec:
     repoURL: https://github.com/elastic/helm-charts.git
     path: elasticsearch
     helm:
-      # values from the ui can't be overriden when using file
-      #valueFiles:
-      #  - examples/minikube/values.yaml
+      # see https://github.com/elastic/helm-charts/blob/master/elasticsearch/examples/minikube/values.yaml
       parameters:
         - name: antiAffinity
           value: "soft"

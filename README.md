@@ -181,23 +181,19 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
     ```bash
     # prometheus
     kubectl port-forward service/prometheus-operator-prometheus 8001:9090 -n observe
-    [open|xdg-open] http://localhost:8001
 
     # alertmanager
     kubectl port-forward service/prometheus-operator-alertmanager 8002:9093 -n observe
-    [open|xdg-open] http://localhost:8002
 
     # grafana
     # username: admin
     # password: prom-operator
     kubectl port-forward service/prometheus-operator-grafana 8003:80 -n observe
-    [open|xdg-open] http://localhost:8003
     ```
 
 * [`kube-ops-view`](https://github.com/helm/charts/tree/master/stable/kube-ops-view) provides a read-only system dashboard for multiple k8s clusters
     ```bash
     kubectl port-forward service/kube-ops-view-kube-ops-view -n observe 8004:80
-    [open|xdg-open] http://localhost:8004
     ```
 
 *EFK stack for logging*
@@ -205,19 +201,16 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch) is a distributed, RESTful search and analytics engine and it's is used for log storage
     ```bash
     kubectl port-forward service/elasticsearch-master 9200:9200 -n observe
-    [open|xdg-open] http://localhost:9200
     ```
 
 * [`cerebro`](https://github.com/helm/charts/tree/master/stable/cerebro) is an Elasticsearch web admin tool
     ```bash
     kubectl port-forward service/cerebro 9000:80 -n observe
-    [open|xdg-open] http://localhost:9000
     ```
 
-* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana) lets visualize and query the log data stored in an Elasticsearch index
+* [`kibana`](https://github.com/elastic/helm-charts/tree/master/kibana) visualize and query the log data stored in an Elasticsearch index
     ```bash
     kubectl port-forward service/kibana-kibana 9001:5601 -n observe
-    [open|xdg-open] http://localhost:9001
     ```
 * [`fluentbit`](https://github.com/helm/charts/tree/master/stable/fluent-bit) is a fast and lightweight Log Processor and Forwarder
 
@@ -240,7 +233,6 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [`kubernetes-dashboard`](https://github.com/helm/charts/tree/master/stable/kubernetes-dashboard) is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself
     ```bash
     kubectl port-forward service/kubernetes-dashboard -n kube-system 8000:443
-    [open|xdg-open] http://localhost:8000
     ```
 
 * [`metrics-server`](https://github.com/helm/charts/tree/master/stable/metrics-server) is an add-on which extends the metrics api group and enables the Kubernetes resource `HorizontalPodAutoscaler`
