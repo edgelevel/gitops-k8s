@@ -153,6 +153,8 @@ This is how it should looks like on the UI
 
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces.
 
+![charts](docs/img/charts.png)
+
 **`ambassador`** namespace is dedicated for [Ambassador](https://www.getambassador.io), a lightweight Kubernetes-native microservices API gateway built on the Envoy Proxy which is mainly used for routing and supports canary deployments, traffic shadowing, rate limiting, authentication and more
 ```bash
 # retrieve EXTERNAL-IP
