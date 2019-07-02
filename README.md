@@ -193,7 +193,7 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 * [`kube-ops-view`](https://github.com/helm/charts/tree/master/stable/kube-ops-view) provides a read-only system dashboard for multiple k8s clusters
     ```bash
-    kubectl port-forward service/kube-ops-view-kube-ops-view -n observe 8004:80
+    kubectl port-forward service/kube-ops-view -n observe 8004:80
     ```
 
 *EFK stack for logging*
@@ -263,3 +263,4 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 * [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
 * [ ] Explain how to test a branch - change target revision from the UI
+* [ ] TODO fix `alertmanager: error: unrecognized log format "<nil>", try --help`

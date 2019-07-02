@@ -14,7 +14,7 @@ spec:
           value: "true" 
         - name: enableInsecureLogin
           value: "true" 
-        - name: rbac.clusterReadOnlyRole
+        - name: rbac.clusterAdminRole
           value: "true" 
   destination:
     server: https://kubernetes.default.svc
