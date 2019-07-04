@@ -93,7 +93,9 @@ This guide will explain how to setup in few steps the whole infrastructure via G
 You need to embrace failures if you want to have the ability to heal and recover automatically in most of the situations. A useful pattern is to have an `initContainer` to solve dependencies between various resources. For example a Kafka application should check if topics have been properly created (ideally by an operator) before even start.
 -->
 
-![architecture](docs/img/architecture.png)
+<p align="center">
+  <img src="docs/img/architecture.png" width="80%" alt="architecture">
+</p>
 
 Most of the steps have been kept manual on purpose, but they should be automated in a production enviroment.
 
@@ -152,6 +154,10 @@ This is how it should looks like on the UI
 ## Applications
 
 Applications in this repository are defined in the parent [applications](applications/templates) chart and are logically split into folders which represent Kubernetes namespaces.
+
+<p align="center">
+  <img src="docs/img/charts.png" alt="charts">
+</p>
 
 **`ambassador`** namespace is dedicated for [Ambassador](https://www.getambassador.io), a lightweight Kubernetes-native microservices API gateway built on the Envoy Proxy which is mainly used for routing and supports canary deployments, traffic shadowing, rate limiting, authentication and more
 ```bash
