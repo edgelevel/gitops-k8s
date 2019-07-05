@@ -254,19 +254,29 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 ---
 
-## TODO (not in order)
+### TODO (not in order)
 
+* [ ] bump argocd to latest version
 * [ ] argocd: example secrets for private charts
 * [ ] argocd: override default `admin.password`
-* [ ] argocd: example login with GitHub
-* [ ] argocd: explain solution of how to sync automatically first time with cronjob
+* [ ] argocd-bootstrap: open source and explain solution of how to sync automatically first time with cronjob
+* [ ] expose argocd over http i.e. `--insecure` flag
+* [ ] configure TLS/cert and authentication on ambassador for all services
+* [ ] centralize auth on ambassador/istio
 * [ ] [Jaeger](https://www.jaegertracing.io) tracing
 * [ ] [kube-monkey](https://github.com/asobti/kube-monkey) or [chaoskube](https://github.com/helm/charts/tree/master/stable/chaoskube)
-* [ ] switch cluster via DNS
+* [ ] explain how to switch cluster via DNS
 * [ ] Kafka from public chart + [JMX fix](https://github.com/helm/charts/pull/10799/files)
-* [ ] stateless vs stateful: how to restore state if source of truth
-* [ ] Example with multiple providers: DigitalOcean, EKS, GKE
-* [ ] Add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
-* [ ] Verify/fix argocd version `version: 1.0.0-0` with `appVersion`
-* [ ] Explain how to test a branch - change target revision from the UI
+* [ ] stateless vs stateful: disaster recovery stratecy e.g S3 backup/restore
+* [ ] example with multiple providers: DigitalOcean, EKS, GKE
+* [ ] add prometheus adapter for custom metrics that can be used by the [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
+* [ ] explain how to test a branch i.e. change target revision from the UI
 * [ ] TODO fix `alertmanager: error: unrecognized log format "<nil>", try --help`
+* [ ] add screenshots to readme for each app
+* [ ] explain how to add grafana dashboards with `ConfigMap`
+* [ ] add alerting example on Slack/PagerDuty
+* [ ] add example of prometheus `ServiceMonitor` + dashboard
+* [ ] explain how to init es index on kibana for logging + screenshot
+* [ ] add `kubefwd` to docs
+* [ ] argocd [issue](https://github.com/argoproj/argo-cd/issues/1786): Add support for secrets in Application parameters
+* [ ] argocd [issue](https://github.com/argoproj/argo-cd/issues/1145): Helm repository as first class Argo CD Application source
