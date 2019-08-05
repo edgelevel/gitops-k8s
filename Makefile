@@ -11,7 +11,7 @@ endif
 # publish to https://edgelevel.github.io/gitops-k8s
 .PHONY: publish-seed
 publish-seed: requirements
-	./scripts/publish-seed.sh
+	./scripts/publish_seed.sh
 
 .PHONY: bootstrap
 bootstrap: requirements
