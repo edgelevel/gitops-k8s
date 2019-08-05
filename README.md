@@ -204,7 +204,7 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 *EFK stack for logging*
 
-* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch) is a distributed, RESTful search and analytics engine and it's is used for log storage
+* [`elasticsearch`](https://github.com/elastic/helm-charts/tree/master/elasticsearch) is a distributed, RESTful search and analytics engine and it's used for log storage
     ```bash
     kubectl port-forward service/elasticsearch-master 9200:9200 -n observe
     ```
@@ -256,7 +256,6 @@ For a working example on DigitalOcean using [`external-dns`](https://github.com/
 
 ### TODO (not in order)
 
-* [ ] bump argocd to latest version
 * [ ] argocd: example secrets for private charts
 * [ ] argocd: override default `admin.password`
 * [ ] argocd-bootstrap: open source and explain solution of how to sync automatically first time with cronjob
